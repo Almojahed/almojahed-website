@@ -194,6 +194,7 @@
       <a href="index.html#contact">Contact</a>
     </nav>
     <div class="nav-cta">
+      <a class="btn btn-ghost" href="mcb-sizing-calculator-ar.html" style="font-family: var(--mono);">AR</a>
       <a class="btn btn-solid" href="tel:+249969520647">Call Us</a>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
@@ -316,7 +317,7 @@
         <h4>Curve C</h4>
         <div class="trip">Trips at 5–10 × In</div>
         <p>The general-purpose curve. Handles moderate inrush from small motors, fluorescent/LED banks, and mixed commercial or industrial circuits.</p>
-        <span class="avail yes">✓ In stock — C10, C16, C25, C32</span>
+        <span class="avail yes">✓ In stock — C10, C16, C25, C32, C63</span>
       </div>
       <div class="curve-card">
         <div class="tag">D</div>
@@ -373,13 +374,38 @@
   });
 
   const STANDARD_SIZES = [6, 10, 16, 20, 25, 32, 40, 50, 63, 80, 100, 125];
-  const STOCKED_SIZES = [10, 16, 25, 32]; // NXB-63 curve C, confirmed in stock
+  const STOCKED_MCB_SIZES = [10, 16, 25, 32, 63]; // NXB-63 Curve C, confirmed in stock across 1P/2P/3P
+
+  // MCCB frame sizes we can supply. `photographed:true` = confirmed physical stock in our
+  // Live Inventory (real photos on hand). `photographed:false` = confirmed available in our
+  // Full Catalog, verified against CHINT's official specs, but not yet unboxed/photographed here.
+  const MCCB_OPTIONS = [
+    { model: 'CHINT DZ158-125', amps: 125, photographed: true },
+    { model: 'CHINT NXM-125H/3300', amps: 100, photographed: false },
+    { model: 'CHINT NXM-250H/3300', amps: 160, photographed: true },
+    { model: 'CHINT NXM-250H/3300', amps: 250, photographed: false },
+    { model: 'CHINT NXM-400H/3300', amps: 400, photographed: false },
+  ].sort((a, b) => a.amps - b.amps);
 
   function nextStandardSize(current) {
     for (const size of STANDARD_SIZES) {
       if (size >= current) return size;
     }
-    return null; // exceeds our standard list — needs an MCCB
+    return null; // exceeds standard MCB list entirely
+  }
+
+  function nextStockedMcbSize(current) {
+    for (const size of STOCKED_MCB_SIZES) {
+      if (size >= current) return size;
+    }
+    return null;
+  }
+
+  function nextMccb(current) {
+    for (const opt of MCCB_OPTIONS) {
+      if (opt.amps >= current) return opt;
+    }
+    return null; // exceeds our largest MCCB frame (400A)
   }
 
   function calculate() {
@@ -411,28 +437,59 @@
     }
 
     const withMargin = current * margin;
-    const recommended = nextStandardSize(withMargin);
 
     document.getElementById('outCurrent').textContent = current.toFixed(1) + ' A';
     document.getElementById('outFormula').textContent = formula;
     document.getElementById('outMargin').textContent = withMargin.toFixed(1) + ' A';
-    document.getElementById('outCurve').textContent = loadTypeLabel;
 
     const stockFlag = document.getElementById('stockFlag');
     const mcbOut = document.getElementById('outMcb');
+    const curveOut = document.getElementById('outCurve');
 
-    if (!recommended) {
-      mcbOut.textContent = '> 125A — needs MCCB';
+    // Once a load needs more than our largest stocked MCB (63A), this is MCCB territory —
+    // MCCBs don't use B/C/D curves the way MCBs do (typically thermal-magnetic, adjustable),
+    // so we switch the recommendation logic entirely rather than keep applying curve labels.
+    if (withMargin > 63) {
+      curveOut.textContent = 'MCCB (thermal-magnetic)';
+      const mccb = nextMccb(withMargin);
+
+      if (!mccb) {
+        mcbOut.textContent = '> 400A — contact us';
+        stockFlag.className = 'stock-flag no-stock';
+        stockFlag.textContent = `This load exceeds our largest standard MCCB frame (400A). Request a quote — our technical team will confirm the right main-distribution solution for a load this size.`;
+      } else {
+        mcbOut.textContent = mccb.amps + 'A · MCCB';
+        if (mccb.photographed) {
+          stockFlag.className = 'stock-flag';
+          stockFlag.textContent = `✓ In stock now: ${mccb.model}, ${mccb.amps}A. This is a photographed unit from our Kassala warehouse — see it in Live Inventory above. Ready for dispatch.`;
+        } else {
+          stockFlag.className = 'stock-flag no-stock';
+          stockFlag.textContent = `${mccb.model}, ${mccb.amps}A — confirmed available in our full catalog (verified against CHINT's official specs), order lead time applies. Request a quote and we'll confirm delivery timing.`;
+        }
+      }
+      return;
+    }
+
+    // 63A and below: standard MCB territory.
+    const recommended = nextStandardSize(withMargin);
+    curveOut.textContent = loadTypeLabel;
+    mcbOut.textContent = recommended + 'A · ' + loadTypeLabel;
+
+    if (loadType !== 'C') {
+      // Right size, wrong curve — we only hold Curve C in physical stock right now.
       stockFlag.className = 'stock-flag no-stock';
-      stockFlag.textContent = 'This load exceeds standard MCB range. You need a Moulded Case Circuit Breaker (MCCB) — we stock CHINT DZ158-125 (125A) and NXM-250H/3300 (160A). Request a quote and we\'ll confirm the right unit.';
+      stockFlag.textContent = `${recommended}A Curve ${loadType} needs to be ordered in — we currently hold Curve C in stock. If Curve C also suits your load, we can likely dispatch same-day instead.`;
+    } else if (STOCKED_MCB_SIZES.includes(recommended)) {
+      stockFlag.className = 'stock-flag';
+      stockFlag.textContent = `✓ In stock now: CHINT NXB-63, ${recommended}A, Curve C. Ready for same-day dispatch from our Khartoum showroom.`;
     } else {
-      mcbOut.textContent = recommended + 'A · ' + loadTypeLabel;
-      if (loadType === 'C' && STOCKED_SIZES.includes(recommended)) {
+      const upSize = nextStockedMcbSize(withMargin);
+      if (upSize) {
         stockFlag.className = 'stock-flag';
-        stockFlag.textContent = `✓ In stock now: CHINT NXB-63, ${recommended}A, Curve C. Ready for same-day dispatch from our Khartoum showroom.`;
+        stockFlag.textContent = `${recommended}A isn't one of our stocked sizes, but our ${upSize}A CHINT NXB-63, Curve C — already in stock — safely covers this load and can dispatch same-day. (Confirm your cable is rated for ${upSize}A before installing.)`;
       } else {
         stockFlag.className = 'stock-flag no-stock';
-        stockFlag.textContent = `${recommended}A Curve ${loadType} isn't part of our confirmed current stock — request a quote and we'll confirm availability or order it in for you.`;
+        stockFlag.textContent = `${recommended}A Curve C is above our largest stocked MCB (63A). Request a quote and we'll order it in, or consider an MCCB for this load.`;
       }
     }
   }
