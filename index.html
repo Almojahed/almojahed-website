@@ -244,12 +244,196 @@
   .route-label{ font-family: var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted-light); }
   .cta-final{ margin-top:30px; display:flex; gap:14px; flex-wrap:wrap; }
 
+  .quote-form{ background: var(--charcoal-2); border:1px solid var(--line-dark); border-radius:10px; padding:34px; }
+  .quote-form h3{ font-family: var(--display); font-size:20px; color: var(--paper); margin-bottom:6px; }
+  .quote-form .sub{ font-size:13.5px; color: var(--muted-light); margin-bottom:22px; }
+  .quote-form .f-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
+  .quote-form label{ display:block; font-family: var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color: var(--amber); margin-bottom:6px; }
+  .quote-form input, .quote-form select, .quote-form textarea{
+    width:100%; background: rgba(255,255,255,0.04); border:1px solid var(--line-dark); border-radius:5px;
+    padding:11px 13px; color: var(--paper); font-family: var(--body); font-size:14.5px;
+  }
+  .quote-form select option{ background: var(--charcoal); color: var(--paper); }
+  .quote-form input::placeholder, .quote-form textarea::placeholder{ color: var(--muted); }
+  .quote-form input:focus, .quote-form select:focus, .quote-form textarea:focus{
+    outline:none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(240,99,30,0.18);
+  }
+  .quote-form .field{ margin-bottom:14px; }
+  .quote-form textarea{ resize:vertical; min-height:90px; }
+  .quote-form button{
+    width:100%; margin-top:6px; font-family: var(--mono); font-weight:600; font-size:13.5px; letter-spacing:.04em;
+    padding:13px 20px; border-radius:5px; border:1.5px solid var(--orange); background: var(--orange); color: var(--paper);
+    cursor:pointer; transition: all .2s ease;
+  }
+  .quote-form button:hover{ background: var(--orange-deep); border-color: var(--orange-deep); }
+  .quote-form .note{ font-size:12px; color: var(--muted-light); margin-top:12px; }
+  @media (max-width:560px){ .quote-form .f-row{ grid-template-columns:1fr; } }
+
+  /* ---------- scroll reveal ---------- */
+  .reveal{ opacity:0; transform: translateY(22px); }
+  .reveal.in-view{ animation: revealIn .7s ease forwards; }
+  @keyframes revealIn{ to{ opacity:1; transform:translateY(0); } }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; }
+    .reveal.in-view{ animation:none; }
+  }
+
   footer{ background: var(--ink); color: var(--muted-light); padding: 40px 0; }
   .foot-grid{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
   .foot-brand{ display:flex; align-items:center; gap:12px; }
   .foot-brand img{ height:28px; }
   footer .ar-tag{ direction: rtl; font-size:13px; }
   footer small{ font-family: var(--mono); font-size:11.5px; letter-spacing:.05em; }
+
+  /* ---------- live inventory / stock gallery ---------- */
+  .stock{ padding: 96px 0; background: var(--cream); }
+  .trust-strip{ display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+  .trust-strip span{
+    font-family: var(--mono); font-size:11.5px; letter-spacing:.03em; color: var(--orange-deep);
+    background: rgba(240,99,30,0.08); border:1px solid rgba(240,99,30,0.25); padding:6px 12px; border-radius:20px;
+  }
+  .filter-tabs{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:26px; }
+  .ftab{
+    font-family: var(--mono); font-size:12.5px; letter-spacing:.03em; padding:9px 18px; border-radius:20px;
+    border:1.5px solid var(--line); background: var(--paper); color: var(--muted); cursor:pointer; transition: all .2s ease;
+  }
+  .ftab:hover{ border-color: var(--orange); color: var(--orange-deep); }
+  .ftab.active{ background: var(--ink); border-color: var(--ink); color: var(--cream); }
+  .stock-card.hidden, .cat-card.hidden{ display:none; }
+  .stock-banner{
+    position:relative; border-radius:8px; overflow:hidden; margin-bottom:44px; height:220px;
+  }
+  .stock-banner img{ width:100%; height:100%; object-fit:cover; }
+  .stock-banner::after{
+    content:"In our Kassala warehouse — stock rotates weekly"; position:absolute; left:0; right:0; bottom:0;
+    padding:14px 20px; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.72));
+    color: var(--cream); font-family: var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+  }
+  .stock-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:22px; }
+  .stock-card{
+    background: var(--paper); border:1px solid var(--line); border-radius:8px; overflow:hidden;
+    display:flex; flex-direction:column; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .stock-card:hover{ transform: translateY(-5px); box-shadow: 0 20px 36px -22px rgba(20,16,10,0.35); border-color: var(--orange); }
+  .stock-card .viewer{ position:relative; aspect-ratio: 4/5; background:#e9e1c2; overflow:hidden; cursor: zoom-in; }
+  .stock-card .viewer img{ width:100%; height:100%; object-fit:cover; display:block; transition: transform .5s ease, opacity .2s ease; }
+  .stock-card .viewer:hover img{ transform: scale(1.06); }
+  .stock-card .viewer::before{
+    content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), inset 0 -60px 70px -50px rgba(0,0,0,0.28);
+  }
+  .stock-card .badge{
+    position:absolute; top:10px; left:10px; font-family: var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    padding:4px 9px; border-radius:20px; background: rgba(27,23,18,0.82); color: var(--amber); z-index:2;
+  }
+  .stock-card .zoom-hint{
+    position:absolute; bottom:10px; right:10px; font-family:var(--mono); font-size:10px; letter-spacing:.06em;
+    padding:4px 8px; border-radius:4px; background: rgba(27,23,18,0.7); color: var(--muted-light); text-transform:uppercase; z-index:2;
+  }
+  .stock-card .thumbs{ display:flex; gap:6px; padding:10px; border-bottom:1px solid var(--line); background: var(--cream-deep); }
+  .stock-card .thumbs img{
+    width:40px; height:40px; object-fit:cover; border-radius:4px; cursor:pointer; border:2px solid transparent; opacity:.7; transition: all .15s ease;
+  }
+  .stock-card .thumbs img.active{ border-color: var(--orange); opacity:1; }
+  .stock-card .thumbs img:hover{ opacity:1; }
+  .stock-card .body{ padding:20px 22px 22px; flex:1; display:flex; flex-direction:column; }
+  .stock-card h3{ font-family: var(--display); font-size:17px; }
+  .stock-card .model{ font-family: var(--mono); font-size:12px; color: var(--orange-deep); margin-top:2px; letter-spacing:.03em; }
+  .stock-card .specs{ margin:14px 0; flex:1; }
+  .stock-card .specs li{ font-size:13px; color: var(--ink); padding:5px 0; border-top:1px dashed var(--line); display:flex; justify-content:space-between; gap:10px; }
+  .stock-card .specs li:first-child{ border-top:none; }
+  .stock-card .specs li b{ font-family: var(--mono); font-size:10.5px; text-transform:uppercase; color: var(--muted); font-weight:500; letter-spacing:.04em; }
+  .stock-card .price-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:6px; }
+  .stock-card .price-note{ font-family: var(--mono); font-size:11px; color: var(--muted); text-transform:uppercase; letter-spacing:.04em; }
+  .stock-card .qbtn{
+    font-family: var(--mono); font-size:12px; font-weight:600; letter-spacing:.03em; padding:9px 14px; border-radius:4px;
+    border:1.5px solid var(--ink); color: var(--ink); background:transparent; cursor:pointer; transition: all .2s ease; white-space:nowrap;
+  }
+  .stock-card .qbtn:hover{ background: var(--ink); color: var(--cream); }
+
+  /* lightbox */
+  .lightbox{
+    position:fixed; inset:0; background: rgba(15,12,8,0.92); z-index:200; display:none;
+    align-items:center; justify-content:center; padding:30px;
+  }
+  .lightbox.open{ display:flex; }
+  .lightbox-inner{ max-width:900px; width:100%; }
+  .lightbox-inner img{ max-width:100%; width:auto; height:auto; max-height:70vh; object-fit:contain; border-radius:6px; background:#111; margin:0 auto; display:block; }
+  .lightbox-thumbs{ display:flex; gap:8px; justify-content:center; margin-top:16px; flex-wrap:wrap; }
+  .lightbox-thumbs img{ width:52px; height:52px; object-fit:cover; border-radius:4px; cursor:pointer; border:2px solid transparent; opacity:.6; }
+  .lightbox-thumbs img.active{ border-color: var(--orange); opacity:1; }
+  .lightbox-close{
+    position:absolute; top:22px; right:26px; color: var(--cream); font-family: var(--mono); font-size:13px;
+    background:none; border:1.5px solid var(--line-dark); border-radius:4px; padding:8px 14px; cursor:pointer;
+  }
+  .lightbox-close:hover{ border-color: var(--orange); color: var(--orange); }
+  .lightbox-caption{ text-align:center; color: var(--muted-light); font-family: var(--mono); font-size:12px; margin-top:12px; letter-spacing:.04em; text-transform:uppercase; }
+
+  /* video clips */
+  .clip-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:20px; margin-top:16px; }
+  .clip-card{
+    background: var(--paper); border:1px solid var(--line); border-radius:8px; overflow:hidden;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; position:relative;
+  }
+  .clip-card:hover{ transform: translateY(-5px); box-shadow: 0 20px 36px -22px rgba(20,16,10,0.35); border-color: var(--orange); }
+  .clip-card .clip-wrap{ position:relative; }
+  .clip-card video{ width:100%; aspect-ratio: 9/16; object-fit:cover; background:#111; display:block; max-height:360px; }
+  .clip-card .duration{
+    position:absolute; bottom:10px; right:10px; font-family: var(--mono); font-size:10.5px; letter-spacing:.04em;
+    padding:3px 8px; border-radius:4px; background: rgba(0,0,0,0.72); color: var(--cream); pointer-events:none; z-index:2;
+  }
+  .clip-card .play-badge{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; z-index:1;
+    transition: opacity .2s ease;
+  }
+  .clip-card .play-badge svg{ width:56px; height:56px; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.4)); }
+  .clip-card video:not([poster]) + .play-badge,
+  .clip-card.playing .play-badge{ opacity:0; }
+  .clip-card .clip-label{ padding:12px 14px; font-family: var(--mono); font-size:12px; color: var(--muted); text-transform:uppercase; letter-spacing:.04em; }
+
+  /* ---------- full catalog (spec cards, no photo) ---------- */
+  .catalog{ padding: 90px 0 96px; background: var(--cream-deep); }
+  .catalog-note{
+    background: var(--paper); border:1px solid var(--line); border-left:4px solid var(--orange);
+    border-radius:6px; padding:16px 20px; font-size:13.5px; color: var(--muted); margin-bottom:32px; line-height:1.6;
+  }
+  .catalog-note b{ color: var(--ink); }
+  .cat-grid{ display:grid; grid-template-columns: repeat(2,1fr); gap:20px; }
+  .cat-card{
+    background: var(--paper); border:1px solid var(--line); border-radius:8px; padding:24px 26px;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .cat-card:hover{ transform: translateY(-4px); box-shadow: 0 18px 32px -20px rgba(20,16,10,0.32); border-color: var(--orange); }
+  .cat-card-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:6px; }
+  .cat-card h3{ font-size:16.5px; font-family: var(--display); font-weight:700; line-height:1.25; }
+  .cat-card .model{ font-family: var(--mono); font-size:12px; color: var(--orange-deep); margin-top:3px; }
+  .cat-badge{
+    font-family: var(--mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap;
+    padding:4px 10px; border-radius:20px; background: var(--ink); color: var(--amber); flex-shrink:0;
+  }
+  .cat-specs{ margin:16px 0; }
+  .cat-specs .r{ display:flex; justify-content:space-between; gap:10px; padding:6px 0; border-top:1px dashed var(--line); font-size:12.5px; }
+  .cat-specs .r:first-child{ border-top:none; }
+  .cat-specs .r b{ font-family:var(--mono); font-size:10px; text-transform:uppercase; color: var(--muted); font-weight:500; letter-spacing:.03em; }
+  .cat-specs .r span{ text-align:right; font-weight:600; color: var(--ink); max-width:60%; }
+  .cat-desc{ font-size:13px; color: var(--muted); line-height:1.6; margin-bottom:16px; }
+  .cat-certs{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:18px; }
+  .cat-certs span{ font-family: var(--mono); font-size:10px; letter-spacing:.03em; padding:3px 8px; border-radius:4px; background: rgba(240,99,30,0.08); color: var(--orange-deep); border:1px solid rgba(240,99,30,0.2); }
+  .cat-foot{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between; padding-top:14px; border-top:1px solid var(--line); }
+  .cat-foot a.datasheet{ font-family: var(--mono); font-size:11.5px; color: var(--muted); text-decoration:underline; text-underline-offset:3px; }
+  .cat-foot a.datasheet:hover{ color: var(--orange-deep); }
+  .cat-foot .no-datasheet{ font-family: var(--mono); font-size:11px; color: var(--muted-light); font-style:italic; }
+  @media (max-width: 700px){ .cat-grid{ grid-template-columns: 1fr; } }
+
+  @media (max-width: 920px){
+    .stock-grid{ grid-template-columns: 1fr 1fr; }
+    .clip-grid{ grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px){
+    .stock-grid{ grid-template-columns: 1fr; }
+    .clip-grid{ grid-template-columns: 1fr; }
+    .stock-banner{ height:160px; }
+  }
 
   @media (max-width: 920px){
     .hero-inner{ grid-template-columns: 1fr; }
@@ -289,8 +473,11 @@
     <nav class="links" id="navLinks">
       <a href="#who">Who We Are</a>
       <a href="#products">Products</a>
+      <a href="#stock">In Stock</a>
+      <a href="#catalog">Full Catalog</a>
       <a href="#services">Services</a>
       <a href="#structure">Structure</a>
+      <a href="mcb-sizing-calculator.html">MCB Calculator</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-cta">
@@ -316,7 +503,7 @@
       <p class="lede">Almojahed Expansion Company Ltd. delivers Low Voltage materials, solar energy systems and complete industrial services — from our Kassala headquarters and Khartoum showroom, straight to your factory floor.</p>
       <p class="ar">شركة المجاهد أكسبانشن لألنشطة المتعددة المحدودة — شراكة قوية مثمرة ومستقبل مؤمن</p>
       <div class="hero-ctas">
-        <a class="btn btn-solid" href="mailto:almojahedexpansion@gmail.com">Email Us</a>
+        <a class="btn btn-solid" href="mailto:almoajahedexpansion@gmail.com">Email Us</a>
         <a class="btn btn-ghost on-dark" href="#products">View Products</a>
       </div>
     </div>
@@ -413,6 +600,416 @@
     </div>
   </div>
 </section>
+
+<section class="stock" id="stock">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Live Inventory</div>
+      <h2 style="font-size:clamp(26px,3vw,36px);">In the warehouse right now</h2>
+      <p>Real units, real photos — pulled straight from our Kassala stock. Prices and online payment are coming soon; for now, request a quote and our team will confirm availability and cost.</p>
+      <div class="trust-strip">
+        <span>✓ Genuine CHINT Stock</span>
+        <span>✓ CE &amp; RoHS Certified</span>
+        <span>✓ IEC/EN Standards</span>
+      </div>
+    </div>
+    <div class="stock-banner">
+      <img src="assets/products/warehouse.jpg" alt="Almojahed warehouse stock of CHINT electrical products">
+    </div>
+    <div class="filter-tabs" id="filterTabs">
+      <button class="ftab active" data-filter="all">All Products</button>
+      <button class="ftab" data-filter="MCB">MCB</button>
+      <button class="ftab" data-filter="MCCB">MCCB</button>
+      <button class="ftab" data-filter="Contactor">Contactor</button>
+    </div>
+    <div class="stock-grid" id="stockGrid">
+
+      <div class="stock-card" data-product="nxb63" data-category="MCB">
+        <div class="viewer" data-product="nxb63">
+          <span class="badge">MCB</span>
+          <img src="assets/products/tagged/nxb63_1.jpg" alt="CHINT NXB-63 miniature circuit breaker" data-main>
+          <span class="zoom-hint">Tap to enlarge</span>
+        </div>
+        <div class="thumbs" data-product="nxb63">
+          <img src="assets/products/tagged/nxb63_1.jpg" class="active" data-idx="0">
+          <img src="assets/products/tagged/nxb63_2.jpg" data-idx="1">
+          <img src="assets/products/tagged/nxb63_back.jpg" data-idx="2">
+          <img src="assets/products/tagged/nxb63_box.jpg" data-idx="3">
+          <img src="assets/products/tagged/nxb63_boxstack.jpg" data-idx="4">
+        </div>
+        <div class="body">
+          <h3>CHINT NXB-63 MCB</h3>
+          <div class="model">Model NXB-63 · 814095 / 814016 / 814013</div>
+          <ul class="specs">
+            <li><b>Poles</b><span>1P &amp; 2P</span></li>
+            <li><b>Curves in stock</b><span>C10 · C16 · C25 · C32</span></li>
+            <li><b>Breaking cap.</b><span>6kA</span></li>
+            <li><b>Standard</b><span>IEC/EN 60898-1</span></li>
+          </ul>
+          <div class="price-row">
+            <span class="price-note">Price on request</span>
+            <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">Ask a Quote</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stock-card" data-product="nb1dc" data-category="MCB">
+        <div class="viewer" data-product="nb1dc">
+          <span class="badge">MCB · DC</span>
+          <img src="assets/products/tagged/nb1_63dc.jpg" alt="CHINT NB1-63DC solar DC circuit breaker" data-main>
+          <span class="zoom-hint">Tap to enlarge</span>
+        </div>
+        <div class="thumbs" data-product="nb1dc">
+          <img src="assets/products/tagged/nb1_63dc.jpg" class="active" data-idx="0">
+        </div>
+        <div class="body">
+          <h3>CHINT NB1-63DC</h3>
+          <div class="model">Solar PV DC-side breaker · C20A</div>
+          <ul class="specs">
+            <li><b>Rated current</b><span>20A</span></li>
+            <li><b>Ue (DC)</b><span>500V</span></li>
+            <li><b>Icu / Ics</b><span>6kA</span></li>
+            <li><b>Standard</b><span>IEC/EN 60947-2 · TÜV</span></li>
+          </ul>
+          <div class="price-row">
+            <span class="price-note">Price on request</span>
+            <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">Ask a Quote</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stock-card" data-product="dz158" data-category="MCCB">
+        <div class="viewer" data-product="dz158">
+          <span class="badge">MCCB</span>
+          <img src="assets/products/tagged/dz158_held.jpg" alt="CHINT DZ158-125 moulded case circuit breaker" data-main>
+          <span class="zoom-hint">Tap to enlarge</span>
+        </div>
+        <div class="thumbs" data-product="dz158">
+          <img src="assets/products/tagged/dz158_held.jpg" class="active" data-idx="0">
+          <img src="assets/products/tagged/dz158_box.jpg" data-idx="1">
+        </div>
+        <div class="body">
+          <h3>CHINT DZ158-125 MCCB</h3>
+          <div class="model">Model DZ158-125 · 158104</div>
+          <ul class="specs">
+            <li><b>In</b><span>125A</span></li>
+            <li><b>Poles</b><span>2P</span></li>
+            <li><b>Ue</b><span>400V ~ 50Hz</span></li>
+            <li><b>Icu = Ics</b><span>6kA</span></li>
+          </ul>
+          <div class="price-row">
+            <span class="price-note">Price on request</span>
+            <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">Ask a Quote</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stock-card" data-product="nxm250" data-category="MCCB">
+        <div class="viewer" data-product="nxm250">
+          <span class="badge">MCCB</span>
+          <img src="assets/products/tagged/nxm250_1.jpg" alt="CHINT NXM-250H/3300 moulded case circuit breaker" data-main>
+          <span class="zoom-hint">Tap to enlarge</span>
+        </div>
+        <div class="thumbs" data-product="nxm250">
+          <img src="assets/products/tagged/nxm250_1.jpg" class="active" data-idx="0">
+          <img src="assets/products/tagged/nxm250_2.jpg" data-idx="1">
+        </div>
+        <div class="body">
+          <h3>CHINT NXM-250H/3300</h3>
+          <div class="model">3-Pole MCCB · In 160A</div>
+          <ul class="specs">
+            <li><b>In</b><span>160A</span></li>
+            <li><b>Ui / Uimp</b><span>800V / 8kV</span></li>
+            <li><b>Icu/Ics (220-240V)</b><span>75/50kA</span></li>
+            <li><b>Certification</b><span>DEKRA · EAC · CE</span></li>
+          </ul>
+          <div class="price-row">
+            <span class="price-note">Price on request</span>
+            <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">Ask a Quote</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stock-card" data-product="nxm630" data-category="MCCB">
+        <div class="viewer" data-product="nxm630">
+          <span class="badge">MCCB</span>
+          <img src="assets/products/tagged/nxm630_1.jpg" alt="CHINT NXM-630S/3300 large-frame moulded case circuit breaker" data-main>
+          <span class="zoom-hint">Tap to enlarge</span>
+        </div>
+        <div class="thumbs" data-product="nxm630">
+          <img src="assets/products/tagged/nxm630_1.jpg" class="active" data-idx="0">
+          <img src="assets/products/tagged/nxm630_2.jpg" data-idx="1">
+        </div>
+        <div class="body">
+          <h3>CHINT NXM-630S/3300</h3>
+          <div class="model">Large-frame MCCB</div>
+          <ul class="specs">
+            <li><b>Frame</b><span>630S</span></li>
+            <li><b>Use case</b><span>Main distribution / factory feeders</span></li>
+            <li><b>Full spec sheet</b><span>Available on request</span></li>
+          </ul>
+          <div class="price-row">
+            <span class="price-note">Price on request</span>
+            <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">Ask a Quote</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stock-card" data-product="nc1" data-category="Contactor">
+        <div class="viewer" data-product="nc1">
+          <span class="badge">Contactor</span>
+          <img src="assets/products/tagged/nc1_contactor.jpg" alt="CHINT NC1 series AC contactor" data-main>
+          <span class="zoom-hint">Tap to enlarge</span>
+        </div>
+        <div class="thumbs" data-product="nc1">
+          <img src="assets/products/tagged/nc1_contactor.jpg" class="active" data-idx="0">
+        </div>
+        <div class="body">
+          <h3>CHINT NC1 AC Contactor</h3>
+          <div class="model">Model NC1-12 / NC1-1210</div>
+          <ul class="specs">
+            <li><b>Voltage</b><span>220V · 50/60Hz</span></li>
+            <li><b>Listing</b><span>UL Listed</span></li>
+            <li><b>Compliance</b><span>RoHS · CE</span></li>
+          </ul>
+          <div class="price-row">
+            <span class="price-note">Price on request</span>
+            <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">Ask a Quote</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-head" style="margin-top:56px; margin-bottom:24px;">
+      <div class="eyebrow">Unboxing &amp; Close-Ups</div>
+      <h2 style="font-size:clamp(22px,2.6vw,30px);">See it before you buy it</h2>
+      <p>Short clips straight from the warehouse floor.</p>
+    </div>
+    <div class="clip-grid">
+      <div class="clip-card" data-clip="1">
+        <div class="clip-wrap">
+          <video controls preload="none" poster="assets/video/clip1_poster.jpg"><source src="assets/video/clip1.mp4" type="video/mp4"></video>
+          <span class="duration">0:37</span>
+          <span class="play-badge"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="27" fill="rgba(27,23,18,0.55)" stroke="white" stroke-width="1.5"/><path d="M23 18 L40 28 L23 38 Z" fill="white"/></svg></span>
+        </div>
+        <div class="clip-label">Warehouse Clip 1</div>
+      </div>
+      <div class="clip-card" data-clip="2">
+        <div class="clip-wrap">
+          <video controls preload="none" poster="assets/video/clip2_poster.jpg"><source src="assets/video/clip2.mp4" type="video/mp4"></video>
+          <span class="duration">0:04</span>
+          <span class="play-badge"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="27" fill="rgba(27,23,18,0.55)" stroke="white" stroke-width="1.5"/><path d="M23 18 L40 28 L23 38 Z" fill="white"/></svg></span>
+        </div>
+        <div class="clip-label">Warehouse Clip 2</div>
+      </div>
+      <div class="clip-card" data-clip="3">
+        <div class="clip-wrap">
+          <video controls preload="none" poster="assets/video/clip3_poster.jpg"><source src="assets/video/clip3.mp4" type="video/mp4"></video>
+          <span class="duration">0:31</span>
+          <span class="play-badge"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="27" fill="rgba(27,23,18,0.55)" stroke="white" stroke-width="1.5"/><path d="M23 18 L40 28 L23 38 Z" fill="white"/></svg></span>
+        </div>
+        <div class="clip-label">Warehouse Clip 3</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="catalog" id="catalog">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Full Catalog</div>
+      <h2 style="font-size:clamp(26px,3vw,36px);">Everything we can supply, verified</h2>
+      <p>Beyond the photographed stock above, these lines are confirmed available to order — genuine CHINT MCCBs, additional NXB-63 MCB variants, and Leitong DC surge protectors for solar. Specs cross-checked against manufacturer documentation.</p>
+    </div>
+
+    <div class="catalog-note">
+      <b>On breaking capacity:</b> CHINT's official NXM specs publish breaking capacity by <em>grade</em> rather than one number per frame — E (15kA), S (25–36kA), F (36–50kA), H (50–70kA). All four NXM units below are H-grade. We've shown that verified range rather than guessing a single decimal; the exact Icu/Ics for your specific frame is confirmed from CHINT's datasheet at quote stage.
+    </div>
+
+    <div class="filter-tabs" id="catalogFilterTabs">
+      <button class="ftab active" data-filter="all">All</button>
+      <button class="ftab" data-filter="MCCB">MCCB</button>
+      <button class="ftab" data-filter="MCB">MCB</button>
+      <button class="ftab" data-filter="SPD">Solar SPD</button>
+    </div>
+
+    <div class="cat-grid" id="catalogGrid">
+
+      <div class="cat-card" data-category="MCCB">
+        <div class="cat-card-top"><div><h3>CHINT NXM-125H MCCB 3P 100A</h3><div class="model">NXM-125H/3300</div></div><span class="cat-badge">MCCB</span></div>
+        <div class="cat-specs">
+          <div class="r"><b>Poles</b><span>3P</span></div>
+          <div class="r"><b>Rated Current</b><span>100A</span></div>
+          <div class="r"><b>Rated Voltage</b><span>400V AC</span></div>
+          <div class="r"><b>Breaking Cap.</b><span>H-Grade (50–70kA)</span></div>
+          <div class="r"><b>Type</b><span>Thermal-magnetic, fixed</span></div>
+          <div class="r"><b>Standard</b><span>IEC/EN 60947-2</span></div>
+        </div>
+        <div class="cat-desc">High breaking-capacity (H) thermal-magnetic MCCB for main and sub-distribution boards. CE certified, international version.</div>
+        <div class="cat-certs"><span>CE</span><span>CQC</span></div>
+        <div class="cat-foot">
+          <a class="datasheet" href="https://www.chintglobal.com/global/en/products/low-voltage/iec/secondary-power-distribution/nxm.html" target="_blank" rel="noopener">View Official Datasheet ↗</a>
+          <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">Ask a Quote</button>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="MCCB">
+        <div class="cat-card-top"><div><h3>CHINT NXM-250H MCCB 3P 160A</h3><div class="model">NXM-250H/3300</div></div><span class="cat-badge">MCCB</span></div>
+        <div class="cat-specs">
+          <div class="r"><b>Poles</b><span>3P</span></div>
+          <div class="r"><b>Rated Current</b><span>160A</span></div>
+          <div class="r"><b>Rated Voltage</b><span>400V AC</span></div>
+          <div class="r"><b>Breaking Cap.</b><span>H-Grade (50–70kA)</span></div>
+          <div class="r"><b>Type</b><span>Thermal-magnetic, fixed</span></div>
+          <div class="r"><b>Standard</b><span>IEC/EN 60947-2</span></div>
+        </div>
+        <div class="cat-desc">Heavy-duty high breaking-capacity breaker for distribution boards and machinery. This is the same NXM-250H/3300 frame we already have photographed in our Live Inventory above.</div>
+        <div class="cat-certs"><span>CE</span><span>CQC</span></div>
+        <div class="cat-foot">
+          <a class="datasheet" href="https://www.chintglobal.com/global/en/products/low-voltage/iec/secondary-power-distribution/nxm.html" target="_blank" rel="noopener">View Official Datasheet ↗</a>
+          <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">Ask a Quote</button>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="MCCB">
+        <div class="cat-card-top"><div><h3>CHINT NXM-250H MCCB 3P 250A</h3><div class="model">NXM-250H/3300</div></div><span class="cat-badge">MCCB</span></div>
+        <div class="cat-specs">
+          <div class="r"><b>Poles</b><span>3P</span></div>
+          <div class="r"><b>Rated Current</b><span>250A</span></div>
+          <div class="r"><b>Rated Voltage</b><span>400V AC</span></div>
+          <div class="r"><b>Breaking Cap.</b><span>H-Grade (50–70kA)</span></div>
+          <div class="r"><b>Type</b><span>Thermal-magnetic, fixed</span></div>
+          <div class="r"><b>Standard</b><span>IEC/EN 60947-2</span></div>
+        </div>
+        <div class="cat-desc">High breaking-capacity protection for main distribution and industrial circuits, top of the 250-frame range.</div>
+        <div class="cat-certs"><span>CE</span><span>CQC</span></div>
+        <div class="cat-foot">
+          <a class="datasheet" href="https://www.chintglobal.com/global/en/products/low-voltage/iec/secondary-power-distribution/nxm.html" target="_blank" rel="noopener">View Official Datasheet ↗</a>
+          <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">Ask a Quote</button>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="MCCB">
+        <div class="cat-card-top"><div><h3>CHINT NXM-400H MCCB 3P 400A</h3><div class="model">NXM-400H/3300</div></div><span class="cat-badge">MCCB</span></div>
+        <div class="cat-specs">
+          <div class="r"><b>Poles</b><span>3P</span></div>
+          <div class="r"><b>Rated Current</b><span>400A</span></div>
+          <div class="r"><b>Rated Voltage</b><span>400V AC</span></div>
+          <div class="r"><b>Breaking Cap.</b><span>H-Grade, up to 70kA</span></div>
+          <div class="r"><b>Type</b><span>Thermal-magnetic, fixed</span></div>
+          <div class="r"><b>Standard</b><span>IEC/EN 60947-2</span></div>
+        </div>
+        <div class="cat-desc">Top-tier high breaking-capacity breaker for main incomer and heavy industrial loads.</div>
+        <div class="cat-certs"><span>CE</span><span>CQC</span></div>
+        <div class="cat-foot">
+          <a class="datasheet" href="https://www.chintglobal.com/global/en/products/low-voltage/iec/secondary-power-distribution/nxm.html" target="_blank" rel="noopener">View Official Datasheet ↗</a>
+          <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">Ask a Quote</button>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="MCB">
+        <div class="cat-card-top"><div><h3>CHINT NXB-63 MCB 2P C63</h3><div class="model">NXB-63 (814098)</div></div><span class="cat-badge">MCB</span></div>
+        <div class="cat-specs">
+          <div class="r"><b>Poles</b><span>2P</span></div>
+          <div class="r"><b>Rated Current</b><span>63A</span></div>
+          <div class="r"><b>Rated Voltage</b><span>230/400V AC</span></div>
+          <div class="r"><b>Breaking Cap.</b><span>6kA</span></div>
+          <div class="r"><b>Type</b><span>Curve C</span></div>
+          <div class="r"><b>Standard</b><span>IEC/EN 60898-1</span></div>
+        </div>
+        <div class="cat-desc">Compact DIN-rail breaker for sub-mains and higher-current final circuits. Same family as our photographed 2P C32 unit, higher rating.</div>
+        <div class="cat-certs"><span>CE (Intertek)</span><span>RoHS</span></div>
+        <div class="cat-foot">
+          <a class="datasheet" href="https://www.chintglobal.com/global/en/products/low-voltage/iec/final-power-distribution/nxb-63.html" target="_blank" rel="noopener">View Official Datasheet ↗</a>
+          <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">Ask a Quote</button>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="MCB">
+        <div class="cat-card-top"><div><h3>CHINT NXB-63 MCB 3P C32</h3><div class="model">NXB-63 (814173)</div></div><span class="cat-badge">MCB</span></div>
+        <div class="cat-specs">
+          <div class="r"><b>Poles</b><span>3P</span></div>
+          <div class="r"><b>Rated Current</b><span>32A</span></div>
+          <div class="r"><b>Rated Voltage</b><span>400V AC</span></div>
+          <div class="r"><b>Breaking Cap.</b><span>6kA</span></div>
+          <div class="r"><b>Type</b><span>Curve C</span></div>
+          <div class="r"><b>Standard</b><span>IEC/EN 60898-1</span></div>
+        </div>
+        <div class="cat-desc">Three-phase protection for motors, pumps and distribution circuits.</div>
+        <div class="cat-certs"><span>CE (Intertek)</span><span>RoHS</span></div>
+        <div class="cat-foot">
+          <a class="datasheet" href="https://www.chintglobal.com/global/en/products/low-voltage/iec/final-power-distribution/nxb-63.html" target="_blank" rel="noopener">View Official Datasheet ↗</a>
+          <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">Ask a Quote</button>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="MCB">
+        <div class="cat-card-top"><div><h3>CHINT NXB-63 MCB 3P C63</h3><div class="model">NXB-63 (814176)</div></div><span class="cat-badge">MCB</span></div>
+        <div class="cat-specs">
+          <div class="r"><b>Poles</b><span>3P</span></div>
+          <div class="r"><b>Rated Current</b><span>63A</span></div>
+          <div class="r"><b>Rated Voltage</b><span>400V AC</span></div>
+          <div class="r"><b>Breaking Cap.</b><span>6kA</span></div>
+          <div class="r"><b>Type</b><span>Curve C</span></div>
+          <div class="r"><b>Standard</b><span>IEC/EN 60898-1</span></div>
+        </div>
+        <div class="cat-desc">Three-phase breaker for higher-current industrial and commercial loads.</div>
+        <div class="cat-certs"><span>CE (Intertek)</span><span>RoHS</span></div>
+        <div class="cat-foot">
+          <a class="datasheet" href="https://www.chintglobal.com/global/en/products/low-voltage/iec/final-power-distribution/nxb-63.html" target="_blank" rel="noopener">View Official Datasheet ↗</a>
+          <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">Ask a Quote</button>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="SPD">
+        <div class="cat-card-top"><div><h3>Leitong LT1-40 DC SPD 2P 500V</h3><div class="model">LT1-40 (500VDC)</div></div><span class="cat-badge">SOLAR SPD</span></div>
+        <div class="cat-specs">
+          <div class="r"><b>Poles</b><span>2P</span></div>
+          <div class="r"><b>In / Imax</b><span>20kA / 40kA</span></div>
+          <div class="r"><b>Rated Voltage</b><span>500V DC (Uc 670V)</span></div>
+          <div class="r"><b>Protection Level</b><span>Up ≤ 2.0kV</span></div>
+          <div class="r"><b>Type</b><span>Type 2, PV DC</span></div>
+          <div class="r"><b>Standard</b><span>IEC 61643-11</span></div>
+        </div>
+        <div class="cat-desc">Surge protective device for solar PV systems — protects against lightning and switching surges. Visual green/red status window. Ideal for 3–10kW residential solar.</div>
+        <div class="cat-certs"><span>CE</span></div>
+        <div class="cat-foot">
+          <span class="no-datasheet">Leitong brand — datasheet on request</span>
+          <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">Ask a Quote</button>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="SPD">
+        <div class="cat-card-top"><div><h3>Leitong LT1-40 DC SPD 2P 1000V</h3><div class="model">LT1-40 (1000VDC)</div></div><span class="cat-badge">SOLAR SPD</span></div>
+        <div class="cat-specs">
+          <div class="r"><b>Poles</b><span>2P</span></div>
+          <div class="r"><b>In / Imax</b><span>20kA / 40kA</span></div>
+          <div class="r"><b>Rated Voltage</b><span>1000V DC (Uc 1200V)</span></div>
+          <div class="r"><b>Protection Level</b><span>Up ≤ 3.2kV</span></div>
+          <div class="r"><b>Type</b><span>Type 2, PV DC</span></div>
+          <div class="r"><b>Standard</b><span>IEC 61643-11</span></div>
+        </div>
+        <div class="cat-desc">Surge and lightning protection for larger solar PV strings, with visual status indicator.</div>
+        <div class="cat-certs"><span>CE</span></div>
+        <div class="cat-foot">
+          <span class="no-datasheet">Leitong brand — datasheet on request</span>
+          <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">Ask a Quote</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">Close ✕</button>
+  <div class="lightbox-inner">
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-thumbs" id="lightboxThumbs"></div>
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+</div>
 
 <section class="services on-dark" id="services">
   <div class="wrap">
@@ -567,34 +1164,68 @@
     <div class="contact-grid">
       <div class="contact-card">
         <div class="row"><div class="ic">📞</div><div><b>Phone</b><a href="tel:+249969520647">0969 520 647</a></div></div>
-        <div class="row"><div class="ic">✉️</div><div><b>Email</b><a href="mailto:almojahedexpansion@gmail.com">almojahedexpansion@gmail.com</a></div></div>
+        <div class="row"><div class="ic">✉️</div><div><b>Email</b><a href="mailto:almoajahedexpansion@gmail.com">almoajahedexpansion@gmail.com</a></div></div>
         <div class="row"><div class="ic">🏪</div><div><b>Showroom</b><div class="val">Heart of Khartoum, Sudan</div></div></div>
         <div class="row"><div class="ic">🏢</div><div><b>Headquarters</b><div class="val">Kassala, Sudan</div></div></div>
         <div class="cta-final">
           <a class="btn btn-solid" href="tel:+249969520647">Call 0969 520 647</a>
-          <a class="btn btn-ghost on-dark" href="mailto:almojahedexpansion@gmail.com">Send an Email</a>
+          <a class="btn btn-ghost on-dark" href="mailto:almoajahedexpansion@gmail.com">Send an Email</a>
         </div>
         <div class="cta-final" style="margin-top:18px;">
           <a class="btn btn-ghost on-dark" href="https://www.facebook.com/profile.php?id=61571283867613" target="_blank" rel="noopener">Follow on Facebook</a>
           <a class="btn btn-ghost on-dark" href="https://www.linkedin.com/company/28572238/" target="_blank" rel="noopener">Follow on LinkedIn</a>
         </div>
       </div>
-      <div class="route">
-        <div class="route-label">HQ Kassala → Showroom Khartoum → Your Site</div>
-        <div class="route-line">
-          <svg viewBox="0 0 400 180" preserveAspectRatio="none">
-            <path d="M30 150 C 120 150, 100 40, 200 40 S 320 150, 370 30" fill="none" stroke="#4A4030" stroke-width="2"/>
-            <path d="M30 150 C 120 150, 100 40, 200 40 S 320 150, 370 30" fill="none" stroke="#F0631E" stroke-width="2" stroke-dasharray="6 10">
-              <animate attributeName="stroke-dashoffset" from="0" to="-160" dur="3.2s" repeatCount="indefinite"/>
-            </path>
-            <circle cx="30" cy="150" r="7" fill="#201B14" stroke="#F0A22A" stroke-width="2.5"/>
-            <circle cx="200" cy="40" r="7" fill="#201B14" stroke="#F0631E" stroke-width="2.5"/>
-            <circle cx="370" cy="30" r="7" fill="#201B14" stroke="#F0631E" stroke-width="2.5"/>
-            <text x="14" y="172" fill="#C9BF9C" font-family="IBM Plex Mono, monospace" font-size="11">KASSALA</text>
-            <text x="168" y="24" fill="#C9BF9C" font-family="IBM Plex Mono, monospace" font-size="11">KHARTOUM</text>
-            <text x="320" y="14" fill="#C9BF9C" font-family="IBM Plex Mono, monospace" font-size="11">SITE</text>
-          </svg>
-        </div>
+      <div class="quote-form" id="quote-form-wrap">
+        <h3>Request a Quote</h3>
+        <div class="sub">Tell us what you need — our technical team will follow up by phone or email.</div>
+        <form action="https://formsubmit.co/almoajahedexpansion@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New Quote Request — Almojahed Website">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none">
+          <div class="f-row">
+            <div class="field"><label for="qf-name">Name</label><input id="qf-name" type="text" name="Name" placeholder="Your name" required></div>
+            <div class="field"><label for="qf-company">Company</label><input id="qf-company" type="text" name="Company" placeholder="Your company"></div>
+          </div>
+          <div class="f-row">
+            <div class="field"><label for="qf-email">Email</label><input id="qf-email" type="email" name="Email" placeholder="you@email.com" required></div>
+            <div class="field"><label for="qf-phone">Phone</label><input id="qf-phone" type="tel" name="Phone" placeholder="+2 ..."></div>
+          </div>
+          <div class="field">
+            <label for="qf-type">Project Type</label>
+            <select id="qf-type" name="Project Type">
+              <option value="">Select project type</option>
+              <option>LV Electrical Supply</option>
+              <option>Solar Energy System</option>
+              <option>Industrial Services</option>
+              <option>Turnkey Fit-Out</option>
+              <option>Maintenance Contract</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="qf-msg">Message</label>
+            <textarea id="qf-msg" name="Message" placeholder="Tell us about your project requirements..."></textarea>
+          </div>
+          <button type="submit">Send Inquiry</button>
+          <div class="note">Submissions are emailed directly to almoajahedexpansion@gmail.com.</div>
+        </form>
+      </div>
+    </div>
+    <div class="route" style="margin-top:40px;">
+      <div class="route-label">HQ Kassala → Showroom Khartoum → Your Site</div>
+      <div class="route-line">
+        <svg viewBox="0 0 400 180" preserveAspectRatio="none">
+          <path d="M30 150 C 120 150, 100 40, 200 40 S 320 150, 370 30" fill="none" stroke="#4A4030" stroke-width="2"/>
+          <path d="M30 150 C 120 150, 100 40, 200 40 S 320 150, 370 30" fill="none" stroke="#F0631E" stroke-width="2" stroke-dasharray="6 10">
+            <animate attributeName="stroke-dashoffset" from="0" to="-160" dur="3.2s" repeatCount="indefinite"/>
+          </path>
+          <circle cx="30" cy="150" r="7" fill="#201B14" stroke="#F0A22A" stroke-width="2.5"/>
+          <circle cx="200" cy="40" r="7" fill="#201B14" stroke="#F0631E" stroke-width="2.5"/>
+          <circle cx="370" cy="30" r="7" fill="#201B14" stroke="#F0631E" stroke-width="2.5"/>
+          <text x="14" y="172" fill="#C9BF9C" font-family="IBM Plex Mono, monospace" font-size="11">KASSALA</text>
+          <text x="168" y="24" fill="#C9BF9C" font-family="IBM Plex Mono, monospace" font-size="11">KHARTOUM</text>
+          <text x="320" y="14" fill="#C9BF9C" font-family="IBM Plex Mono, monospace" font-size="11">SITE</text>
+        </svg>
       </div>
     </div>
   </div>
@@ -634,7 +1265,144 @@
     links.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
   }));
+
+  // Scroll-reveal: fade+rise elements into view as the user scrolls
+  const revealTargets = document.querySelectorAll(
+    '.section-head, .card, .svc, .div-card, .contact-card, .quote-form, .who-visual, .compare, .stock-card, .clip-card, .stock-banner, .cat-card, .catalog-note'
+  );
+  revealTargets.forEach(el => el.classList.add('reveal'));
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealTargets.forEach(el => io.observe(el));
+  } else {
+    revealTargets.forEach(el => el.classList.add('in-view'));
+  }
+
+  // ---------- Live Inventory gallery: thumbnail swap + lightbox ----------
+  (function () {
+    const grid = document.getElementById('stockGrid');
+    if (!grid) return;
+
+    // Build a map of product -> ordered list of image sources, from each card's thumbs
+    const productImages = {};
+    grid.querySelectorAll('.thumbs').forEach(thumbRow => {
+      const product = thumbRow.dataset.product;
+      productImages[product] = Array.from(thumbRow.querySelectorAll('img')).map(img => img.getAttribute('src'));
+    });
+
+    function setActiveThumb(product, idx) {
+      grid.querySelectorAll(`.thumbs[data-product="${product}"] img`).forEach((img, i) => {
+        img.classList.toggle('active', i === idx);
+      });
+    }
+
+    function setMainImage(product, idx) {
+      const src = productImages[product][idx];
+      const viewer = grid.querySelector(`.viewer[data-product="${product}"] img[data-main]`);
+      if (viewer) viewer.setAttribute('src', src);
+      setActiveThumb(product, idx);
+    }
+
+    // Thumbnail clicks swap the card's main image
+    grid.querySelectorAll('.thumbs img').forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const product = thumb.closest('.thumbs').dataset.product;
+        const idx = parseInt(thumb.dataset.idx, 10);
+        setMainImage(product, idx);
+      });
+    });
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxThumbs = document.getElementById('lightboxThumbs');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxClose');
+    let currentProduct = null;
+
+    function openLightbox(product, idx) {
+      currentProduct = product;
+      const images = productImages[product];
+      lightboxImg.setAttribute('src', images[idx]);
+      lightboxCaption.textContent = grid.querySelector(`[data-product="${product}"] h3`)?.textContent || '';
+      lightboxThumbs.innerHTML = '';
+      images.forEach((src, i) => {
+        const t = document.createElement('img');
+        t.setAttribute('src', src);
+        if (i === idx) t.classList.add('active');
+        t.addEventListener('click', () => {
+          lightboxImg.setAttribute('src', src);
+          lightboxThumbs.querySelectorAll('img').forEach((el, j) => el.classList.toggle('active', j === i));
+          setMainImage(product, i);
+        });
+        lightboxThumbs.appendChild(t);
+      });
+      lightbox.classList.add('open');
+    }
+
+    grid.querySelectorAll('.viewer').forEach(viewer => {
+      viewer.addEventListener('click', () => {
+        const product = viewer.dataset.product;
+        const activeIdx = Array.from(grid.querySelectorAll(`.thumbs[data-product="${product}"] img`)).findIndex(el => el.classList.contains('active'));
+        openLightbox(product, activeIdx < 0 ? 0 : activeIdx);
+      });
+    });
+
+    lightboxClose.addEventListener('click', () => lightbox.classList.remove('open'));
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+
+    // Category filter tabs
+    const tabs = document.getElementById('filterTabs');
+    if (tabs) {
+      tabs.querySelectorAll('.ftab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          const filter = tab.dataset.filter;
+          grid.querySelectorAll('.stock-card').forEach(card => {
+            const match = filter === 'all' || card.dataset.category === filter;
+            card.classList.toggle('hidden', !match);
+          });
+        });
+      });
+    }
+  })();
+
+  // Full Catalog filter tabs (separate grid, same interaction pattern)
+  (function () {
+    const tabs = document.getElementById('catalogFilterTabs');
+    const catGrid = document.getElementById('catalogGrid');
+    if (!tabs || !catGrid) return;
+    tabs.querySelectorAll('.ftab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const filter = tab.dataset.filter;
+        catGrid.querySelectorAll('.cat-card').forEach(card => {
+          const match = filter === 'all' || card.dataset.category === filter;
+          card.classList.toggle('hidden', !match);
+        });
+      });
+    });
+  })();
+
+  // Video play-button overlay: hide once playing, show again when paused/ended
+  document.querySelectorAll('.clip-card').forEach(card => {
+    const video = card.querySelector('video');
+    if (!video) return;
+    video.addEventListener('play', () => card.classList.add('playing'));
+    video.addEventListener('pause', () => card.classList.remove('playing'));
+    video.addEventListener('ended', () => card.classList.remove('playing'));
+  });
 </script>
 </body>
 </html>
-    
