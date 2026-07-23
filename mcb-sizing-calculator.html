@@ -424,7 +424,7 @@
     if (!recommended) {
       mcbOut.textContent = '> 125A — needs MCCB';
       stockFlag.className = 'stock-flag no-stock';
-      stockFlag.textContent = 'This load exceeds standard MCB range. You need a Moulded Case Circuit Breaker (MCCB) — we stock CHINT DZ158-125 (125A) and NXM-250H/3300 (160A). Request a quote and we\\'ll confirm the right unit.';
+      stockFlag.textContent = 'This load exceeds standard MCB range. You need a Moulded Case Circuit Breaker (MCCB) — we stock CHINT DZ158-125 (125A) and NXM-250H/3300 (160A). Request a quote and we\'ll confirm the right unit.';
     } else {
       mcbOut.textContent = recommended + 'A · ' + loadTypeLabel;
       if (loadType === 'C' && STOCKED_SIZES.includes(recommended)) {
