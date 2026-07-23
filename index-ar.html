@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شركة المجاهد أكسبانشن — كهرباء الجهد المنخفض والطاقة الشمسية والتوريد الصناعي، السودان</title>
+<meta name="description" content="شركة المجاهد أكسبانشن — شريكك الموثوق لمواد الجهد المنخفض وأنظمة الطاقة الشمسية والتوريد الصناعي. المقر الرئيسي في كسلا، ومعرض في الخرطوم، السودان.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #F7F2DD;
+    --cream-deep: #EFE7C6;
+    --paper: #FFFDF6;
+    --ink: #1B1712;
+    --charcoal: #201B14;
+    --charcoal-2: #2A2318;
+    --orange: #F0631E;
+    --orange-deep: #C94E14;
+    --amber: #F0A22A;
+    --line: #DCD0A3;
+    --line-dark: #4A4030;
+    --muted: #6B6350;
+    --muted-light: #C9BF9C;
+
+    --display: 'Tajawal', sans-serif;
+    --body: 'IBM Plex Sans Arabic', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; overflow-x: hidden; }
+  body{
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color: inherit; text-decoration:none; }
+  ul{ list-style:none; }
+
+  .wrap{ max-width: 1180px; margin:0 auto; padding: 0 28px; }
+  section{ position:relative; }
+
+  h1,h2,h3,h4{ font-family: var(--display); font-weight:900; line-height:1.05; letter-spacing:-0.01em; }
+  .eyebrow{
+    font-family: var(--mono); font-size:12.5px; letter-spacing:.18em; text-transform:uppercase;
+    color: var(--orange-deep); font-weight:600; display:flex; align-items:center; gap:10px; margin-bottom:14px;
+  }
+  .eyebrow::before{ content:""; width:22px; height:2px; background: var(--orange); display:inline-block; }
+  .section-head{ max-width: 640px; margin-bottom: 44px; }
+  .section-head p{ color: var(--muted); font-size: 16.5px; margin-top: 14px; }
+  .on-dark .eyebrow{ color: var(--amber); }
+  .on-dark .eyebrow::before{ background: var(--amber); }
+  .on-dark .section-head p{ color: var(--muted-light); }
+
+  /* ---------- circuit divider (signature element) ---------- */
+  .circuit{
+    width:100%; overflow:hidden; line-height:0;
+  }
+  .circuit svg{ width:100%; height:auto; display:block; }
+  .circuit .trace{
+    fill:none; stroke: var(--orange); stroke-width:2; stroke-dasharray: 6 10;
+    animation: flow 3.2s linear infinite;
+  }
+  .circuit .node{ fill: var(--cream); stroke: var(--orange); stroke-width:2.5; }
+  .circuit.on-dark-line .node{ fill: var(--charcoal); }
+  @keyframes flow{ to{ stroke-dashoffset: -160; } }
+  @media (prefers-reduced-motion: reduce){
+    .circuit .trace{ animation:none; }
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position: sticky; top:0; z-index:50;
+    background: rgba(247,242,221,0.92); backdrop-filter: blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding: 14px 28px; max-width:1180px; margin:0 auto; }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand img{ height:38px; width:auto; }
+  .brand-text{ font-family: var(--display); font-weight:900; font-size:16px; letter-spacing:.02em; line-height:1.1; }
+  .brand-text span{ display:block; font-family: var(--mono); font-weight:500; font-size:9.5px; letter-spacing:.16em; color: var(--muted); text-transform:uppercase; margin-top:2px; }
+  nav.links{ display:flex; gap:16px; }
+  nav.links a{ font-size:13px; font-weight:600; color: var(--ink); position:relative; padding:4px 0; white-space:nowrap; }
+  nav.links a::after{ content:""; position:absolute; inset-inline-start:0; bottom:-2px; width:0; height:2px; background:var(--orange); transition:width .25s ease; }
+  nav.links a:hover::after{ width:100%; }
+  .nav-cta{
+    display:flex; align-items:center; gap:16px;
+  }
+  .social-links{ display:flex; align-items:center; gap:10px; }
+  .social-links a{
+    width:34px; height:34px; border-radius:50%; border:1.5px solid var(--ink);
+    display:flex; align-items:center; justify-content:center; transition: all .2s ease;
+  }
+  .social-links a:hover{ background: var(--ink); }
+  .social-links a:hover svg{ fill: var(--cream); }
+  .social-links svg{ width:16px; height:16px; fill: var(--ink); transition: fill .2s ease; }
+  .social-links.on-dark a{ border-color: var(--line-dark); }
+  .social-links.on-dark a:hover{ background: var(--cream); }
+  .social-links.on-dark a:hover svg{ fill: var(--charcoal); }
+  .social-links.on-dark svg{ fill: var(--muted-light); }
+  .btn{
+    font-family: var(--mono); font-weight:600; font-size:13px; letter-spacing:.04em;
+    padding: 11px 20px; border-radius:3px; display:inline-flex; align-items:center; gap:8px;
+    border: 1.5px solid var(--ink); transition: all .2s ease;
+  }
+  .btn-solid{ background: var(--orange); border-color: var(--orange); color: var(--paper); }
+  .btn-solid:hover{ background: var(--orange-deep); border-color: var(--orange-deep); }
+  .btn-ghost{ background:transparent; color: var(--ink); }
+  .btn-ghost:hover{ background: var(--ink); color: var(--cream); }
+  .btn-ghost.on-dark{ border-color: var(--cream); color: var(--cream); }
+  .btn-ghost.on-dark:hover{ background: var(--cream); color: var(--charcoal); }
+  .menu-toggle{
+    display:none; background:none; border:1.5px solid var(--ink); border-radius:3px;
+    width:40px; height:36px; cursor:pointer; align-items:center; justify-content:center; flex-direction:column; gap:4px;
+  }
+  .menu-toggle span{ width:18px; height:2px; background: var(--ink); display:block; }
+  a:focus-visible, button:focus-visible{ outline: 2.5px solid var(--orange); outline-offset: 3px; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    background: var(--charcoal); color: var(--cream); position:relative; overflow:hidden;
+    padding: 90px 0 0;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background-image: radial-gradient(circle at 18% 20%, rgba(240,99,30,0.16), transparent 45%),
+      radial-gradient(circle at 85% 0%, rgba(240,162,42,0.12), transparent 40%);
+    pointer-events:none;
+  }
+  .hero-inner{ position:relative; display:grid; grid-template-columns: minmax(0,1.15fr) minmax(0,.85fr); gap:50px; align-items:center; }
+  .hero-tag{ font-family: var(--mono); font-size:12.5px; letter-spacing:.2em; text-transform:uppercase; color: var(--amber); margin-bottom:22px; display:flex; align-items:center; gap:10px;}
+  .hero-tag::before{ content:""; width:8px; height:8px; border-radius:50%; background: var(--orange); box-shadow:0 0 0 4px rgba(240,99,30,0.25); }
+  .hero h1{ font-size: clamp(34px, 4.6vw, 58px); color:var(--paper); }
+  .hero h1 em{ font-style:normal; color: var(--orange); }
+  .hero .lede{ margin-top:22px; font-size:17.5px; color: var(--muted-light); max-width: 520px; }
+  .hero .ar{ font-family: var(--body); direction: rtl; color: var(--muted-light); font-size:15px; margin-top:14px; max-width:520px; }
+  .hero-ctas{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+
+  .hero-art{ position:relative; }
+  .hero-art .frame{
+    border:1.5px solid var(--line-dark); border-radius:6px; padding:26px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
+  }
+  .hero-art .frame img{ border-radius:3px; }
+  .hero-stats{
+    display:grid; grid-template-columns: repeat(3,minmax(0,1fr)); border-top:1px solid var(--line-dark); margin-top:70px;
+  }
+  .hero-stats div{ padding: 26px 28px; border-inline-end:1px solid var(--line-dark); }
+  .hero-stats div:last-child{ border-inline-end:none; }
+  .hero-stats .num{ font-family: var(--display); font-weight:900; font-size:30px; color: var(--orange); }
+  .hero-stats .lbl{ font-family: var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color: var(--muted-light); margin-top:6px; }
+
+  /* ---------- who we are ---------- */
+  .who{ padding: 96px 0; background: var(--cream); }
+  .who-grid{ display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap:60px; align-items:start; }
+  .who p{ margin-bottom:16px; color: var(--ink); font-size:16px; }
+  .who .ar-block{ margin-top: 22px; padding-top:20px; border-top:1px dashed var(--line); direction: ltr; text-align: end; color: var(--muted); font-size:14.5px; }
+  .who-visual{ background: var(--charcoal); border-radius:8px; padding:34px; color: var(--cream); }
+  .who-visual h4{ font-size:14px; font-family: var(--mono); font-weight:600; letter-spacing:.1em; text-transform:uppercase; color: var(--amber); margin-bottom:22px; }
+  .fact-row{ display:flex; justify-content:space-between; padding:16px 0; border-bottom:1px solid var(--line-dark); font-size:14.5px; }
+  .fact-row:last-child{ border-bottom:none; }
+  .fact-row b{ font-family:var(--display); font-weight:700; color: var(--paper); }
+  .fact-row span{ color: var(--muted-light); font-family: var(--mono); font-size:12.5px; text-align:end; }
+
+  /* ---------- products ---------- */
+  .products{ padding: 96px 0; background: var(--cream-deep); }
+  .grid-3{ display:grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap:22px; }
+  .card{
+    background: var(--paper); border:1px solid var(--line); border-radius:8px; padding:28px 24px;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .card:hover{ transform: translateY(-4px); border-color: var(--orange); box-shadow: 0 14px 30px -18px rgba(0,0,0,0.35); }
+  .card .ic{ font-size:26px; margin-bottom:16px; }
+  .card h3{ font-size:18px; font-family: var(--display); font-weight:700; }
+  .card .ar-name{ direction: rtl; color: var(--orange-deep); font-size:13.5px; margin-top:4px; font-weight:600; }
+  .card p{ margin-top:10px; color: var(--muted); font-size:14.5px; }
+
+  /* ---------- services ---------- */
+  .services{ padding: 96px 0; background: var(--charcoal); color: var(--cream); }
+  .svc-list{ display:flex; flex-direction:column; }
+  .svc{
+    display:grid; grid-template-columns: 60px minmax(0,1fr); gap:24px; padding: 28px 0; border-bottom:1px solid var(--line-dark);
+    position:relative;
+  }
+  .svc:first-child{ padding-top:0; }
+  .svc:last-child{ border-bottom:none; padding-bottom:0; }
+  .svc .node-col{ display:flex; flex-direction:column; align-items:center; }
+  .svc .dot{ width:14px; height:14px; border-radius:50%; background: var(--orange); border:3px solid rgba(240,99,30,0.28); flex-shrink:0; }
+  .svc .stem{ width:2px; flex:1; background: var(--line-dark); margin-top:6px; }
+  .svc:last-child .stem{ display:none; }
+  .svc h3{ font-size:20px; color:var(--paper); display:flex; gap:12px; align-items:baseline; flex-wrap:wrap; }
+  .svc h3 .ar{ font-family: var(--body); font-weight:500; font-size:14px; color: var(--amber); direction: rtl; }
+  .svc p{ margin-top:10px; color: var(--muted-light); font-size:15px; max-width:680px; }
+
+  /* ---------- structure ---------- */
+  .structure{ padding: 96px 0; background: var(--cream); }
+  .org-top{
+    background: var(--ink); color: var(--paper); text-align:center; padding: 22px; border-radius:8px;
+    font-family: var(--mono); letter-spacing:.08em; margin-bottom: 0;
+  }
+  .org-top b{ font-family: var(--display); font-size:18px; letter-spacing:0; display:block; margin-bottom:4px; }
+  .org-top span{ font-size:11.5px; color: var(--muted-light); text-transform:uppercase; }
+  .org-stem{ width:2px; height:34px; background: var(--line); margin:0 auto; }
+  .org-grid{ display:grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap:18px; }
+  .div-card{ border-top:4px solid var(--orange); background: var(--paper); border-radius: 0 0 8px 8px; padding:22px 18px; }
+  .div-card:nth-child(2){ border-color: var(--amber); }
+  .div-card:nth-child(3){ border-color: #4E7A6B; }
+  .div-card:nth-child(4){ border-color: var(--orange-deep); }
+  .div-card h4{ font-family: var(--display); font-size:15.5px; text-transform:uppercase; letter-spacing:.02em; }
+  .div-card .ar{ direction:rtl; font-size:12.5px; color: var(--muted); margin:4px 0 14px; }
+  .div-card li{ font-size:13px; color: var(--ink); padding:6px 0; border-top:1px solid var(--line); }
+  .div-card li:first-of-type{ border-top:none; }
+
+  /* ---------- why us ---------- */
+  .why{ padding: 96px 0; background: var(--cream-deep); }
+  .compare{ width:100%; border-collapse:collapse; background: var(--paper); border-radius:8px; overflow:hidden; border:1px solid var(--line); }
+  .compare th{ text-align:start; font-family: var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; padding:16px 22px; }
+  .compare thead th:first-child{ background: var(--ink); color: var(--muted-light); }
+  .compare thead th:last-child{ background: var(--orange); color: var(--paper); }
+  .compare td{ padding:15px 22px; font-size:14.5px; border-top:1px solid var(--line); }
+  .compare td:first-child{ color: var(--muted); }
+  .compare td:last-child{ color: var(--ink); font-weight:600; }
+  .x{ color:#B23A2E; margin-inline-end:8px; }
+  .ok{ color: var(--orange-deep); margin-inline-end:8px; font-weight:700; }
+
+  /* ---------- contact ---------- */
+  .contact{ padding: 96px 0; background: var(--charcoal); color: var(--cream); }
+  .contact-grid{ display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 50px; }
+  .contact-card{ background: var(--charcoal-2); border:1px solid var(--line-dark); border-radius:10px; padding:34px; }
+  .contact-card .row{ display:flex; align-items:flex-start; gap:16px; padding:16px 0; border-bottom:1px solid var(--line-dark); }
+  .contact-card .row:last-child{ border-bottom:none; }
+  .contact-card .row .ic{ font-size:19px; margin-top:2px; }
+  .contact-card .row b{ display:block; font-family: var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color: var(--amber); margin-bottom:4px; }
+  .contact-card .row a, .contact-card .row div.val{ font-size:15.5px; color: var(--paper); }
+  .route{ position:relative; padding: 10px 0 0 0; }
+  .route-line{ position:relative; height:180px; }
+  .route-line svg{ width:100%; height:100%; }
+  .route-label{ font-family: var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted-light); }
+  .cta-final{ margin-top:30px; display:flex; gap:14px; flex-wrap:wrap; }
+
+  .quote-form{ background: var(--charcoal-2); border:1px solid var(--line-dark); border-radius:10px; padding:34px; }
+  .quote-form h3{ font-family: var(--display); font-size:20px; color: var(--paper); margin-bottom:6px; }
+  .quote-form .sub{ font-size:13.5px; color: var(--muted-light); margin-bottom:22px; }
+  .quote-form .f-row{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:14px; margin-bottom:14px; }
+  .quote-form label{ display:block; font-family: var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color: var(--amber); margin-bottom:6px; }
+  .quote-form input, .quote-form select, .quote-form textarea{
+    width:100%; background: rgba(255,255,255,0.04); border:1px solid var(--line-dark); border-radius:5px;
+    padding:11px 13px; color: var(--paper); font-family: var(--body); font-size:14.5px;
+  }
+  .quote-form select option{ background: var(--charcoal); color: var(--paper); }
+  .quote-form input::placeholder, .quote-form textarea::placeholder{ color: var(--muted); }
+  .quote-form input:focus, .quote-form select:focus, .quote-form textarea:focus{
+    outline:none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(240,99,30,0.18);
+  }
+  .quote-form .field{ margin-bottom:14px; }
+  .quote-form textarea{ resize:vertical; min-height:90px; }
+  .quote-form button{
+    width:100%; margin-top:6px; font-family: var(--mono); font-weight:600; font-size:13.5px; letter-spacing:.04em;
+    padding:13px 20px; border-radius:5px; border:1.5px solid var(--orange); background: var(--orange); color: var(--paper);
+    cursor:pointer; transition: all .2s ease;
+  }
+  .quote-form button:hover{ background: var(--orange-deep); border-color: var(--orange-deep); }
+  .quote-form .note{ font-size:12px; color: var(--muted-light); margin-top:12px; }
+  @media (max-width:560px){ .quote-form .f-row{ grid-template-columns:minmax(0,1fr); } }
+
+  /* ---------- scroll reveal ---------- */
+  .reveal{ opacity:0; transform: translateY(22px); }
+  .reveal.in-view{ animation: revealIn .7s ease forwards; }
+  @keyframes revealIn{ to{ opacity:1; transform:translateY(0); } }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; }
+    .reveal.in-view{ animation:none; }
+  }
+
+  footer{ background: var(--ink); color: var(--muted-light); padding: 40px 0; }
+  .foot-grid{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  .foot-brand{ display:flex; align-items:center; gap:12px; }
+  .foot-brand img{ height:28px; }
+  footer .ar-tag{ direction: rtl; font-size:13px; }
+  footer small{ font-family: var(--mono); font-size:11.5px; letter-spacing:.05em; }
+
+  /* ---------- live inventory / stock gallery ---------- */
+  .stock{ padding: 96px 0; background: var(--cream); }
+  .trust-strip{ display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+  .trust-strip span{
+    font-family: var(--mono); font-size:11.5px; letter-spacing:.03em; color: var(--orange-deep);
+    background: rgba(240,99,30,0.08); border:1px solid rgba(240,99,30,0.25); padding:6px 12px; border-radius:20px;
+  }
+  .filter-tabs{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:26px; }
+  .ftab{
+    font-family: var(--mono); font-size:12.5px; letter-spacing:.03em; padding:9px 18px; border-radius:20px;
+    border:1.5px solid var(--line); background: var(--paper); color: var(--muted); cursor:pointer; transition: all .2s ease;
+  }
+  .ftab:hover{ border-color: var(--orange); color: var(--orange-deep); }
+  .ftab.active{ background: var(--ink); border-color: var(--ink); color: var(--cream); }
+  .stock-card.hidden, .cat-card.hidden{ display:none; }
+  .stock-banner{
+    position:relative; border-radius:8px; overflow:hidden; margin-bottom:44px; height:220px;
+  }
+  .stock-banner img{ width:100%; height:100%; object-fit:cover; }
+  .stock-banner::after{
+    content:"In our Kassala warehouse — stock rotates weekly"; position:absolute; inset-inline-start:0; inset-inline-end:0; bottom:0;
+    padding:14px 20px; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.72));
+    color: var(--cream); font-family: var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+  }
+  .stock-grid{ display:grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap:22px; }
+  .stock-card{
+    background: var(--paper); border:1px solid var(--line); border-radius:8px; overflow:hidden;
+    display:flex; flex-direction:column; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .stock-card:hover{ transform: translateY(-5px); box-shadow: 0 20px 36px -22px rgba(20,16,10,0.35); border-color: var(--orange); }
+  .stock-card .viewer{ position:relative; aspect-ratio: 4/5; background:#e9e1c2; overflow:hidden; cursor: zoom-in; }
+  .stock-card .viewer img{ width:100%; height:100%; object-fit:cover; display:block; transition: transform .5s ease, opacity .2s ease; }
+  .stock-card .viewer:hover img{ transform: scale(1.06); }
+  .stock-card .viewer::before{
+    content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), inset 0 -60px 70px -50px rgba(0,0,0,0.28);
+  }
+  .stock-card .badge{
+    position:absolute; top:10px; inset-inline-start:10px; font-family: var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    padding:4px 9px; border-radius:20px; background: rgba(27,23,18,0.82); color: var(--amber); z-index:2;
+  }
+  .stock-card .zoom-hint{
+    position:absolute; bottom:10px; inset-inline-end:10px; font-family:var(--mono); font-size:10px; letter-spacing:.06em;
+    padding:4px 8px; border-radius:4px; background: rgba(27,23,18,0.7); color: var(--muted-light); text-transform:uppercase; z-index:2;
+  }
+  .stock-card .thumbs{ display:flex; gap:6px; padding:10px; border-bottom:1px solid var(--line); background: var(--cream-deep); }
+  .stock-card .thumbs img{
+    width:40px; height:40px; object-fit:cover; border-radius:4px; cursor:pointer; border:2px solid transparent; opacity:.7; transition: all .15s ease;
+  }
+  .stock-card .thumbs img.active{ border-color: var(--orange); opacity:1; }
+  .stock-card .thumbs img:hover{ opacity:1; }
+  .stock-card .body{ padding:20px 22px 22px; flex:1; display:flex; flex-direction:column; }
+  .stock-card h3{ font-family: var(--display); font-size:17px; }
+  .stock-card .model{ font-family: var(--mono); font-size:12px; color: var(--orange-deep); margin-top:2px; letter-spacing:.03em; }
+  .stock-card .specs{ margin:14px 0; flex:1; }
+  .stock-card .specs li{ font-size:13px; color: var(--ink); padding:5px 0; border-top:1px dashed var(--line); display:flex; justify-content:space-between; gap:10px; }
+  .stock-card .specs li:first-child{ border-top:none; }
+  .stock-card .specs li b{ font-family: var(--mono); font-size:10.5px; text-transform:uppercase; color: var(--muted); font-weight:500; letter-spacing:.04em; }
+  .stock-card .price-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:6px; }
+  .stock-card .price-note{ font-family: var(--mono); font-size:11px; color: var(--muted); text-transform:uppercase; letter-spacing:.04em; }
+  .stock-card .qbtn{
+    font-family: var(--mono); font-size:12px; font-weight:600; letter-spacing:.03em; padding:9px 14px; border-radius:4px;
+    border:1.5px solid var(--ink); color: var(--ink); background:transparent; cursor:pointer; transition: all .2s ease; white-space:nowrap;
+  }
+  .stock-card .qbtn:hover{ background: var(--ink); color: var(--cream); }
+
+  /* lightbox */
+  .lightbox{
+    position:fixed; inset:0; background: rgba(15,12,8,0.92); z-index:200; display:none;
+    align-items:center; justify-content:center; padding:30px;
+  }
+  .lightbox.open{ display:flex; }
+  .lightbox-inner{ max-width:900px; width:100%; }
+  .lightbox-inner img{ max-width:100%; width:auto; height:auto; max-height:70vh; object-fit:contain; border-radius:6px; background:#111; margin:0 auto; display:block; }
+  .lightbox-thumbs{ display:flex; gap:8px; justify-content:center; margin-top:16px; flex-wrap:wrap; }
+  .lightbox-thumbs img{ width:52px; height:52px; object-fit:cover; border-radius:4px; cursor:pointer; border:2px solid transparent; opacity:.6; }
+  .lightbox-thumbs img.active{ border-color: var(--orange); opacity:1; }
+  .lightbox-close{
+    position:absolute; top:22px; inset-inline-end:26px; color: var(--cream); font-family: var(--mono); font-size:13px;
+    background:none; border:1.5px solid var(--line-dark); border-radius:4px; padding:8px 14px; cursor:pointer;
+  }
+  .lightbox-close:hover{ border-color: var(--orange); color: var(--orange); }
+  .lightbox-caption{ text-align:center; color: var(--muted-light); font-family: var(--mono); font-size:12px; margin-top:12px; letter-spacing:.04em; text-transform:uppercase; }
+
+  /* video clips */
+  .clip-grid{ display:grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap:20px; margin-top:16px; }
+  .clip-card{
+    background: var(--paper); border:1px solid var(--line); border-radius:8px; overflow:hidden;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; position:relative;
+  }
+  .clip-card:hover{ transform: translateY(-5px); box-shadow: 0 20px 36px -22px rgba(20,16,10,0.35); border-color: var(--orange); }
+  .clip-card .clip-wrap{ position:relative; }
+  .clip-card video{ width:100%; aspect-ratio: 9/16; object-fit:cover; background:#111; display:block; max-height:360px; }
+  .clip-card .duration{
+    position:absolute; bottom:10px; inset-inline-end:10px; font-family: var(--mono); font-size:10.5px; letter-spacing:.04em;
+    padding:3px 8px; border-radius:4px; background: rgba(0,0,0,0.72); color: var(--cream); pointer-events:none; z-index:2;
+  }
+  .clip-card .play-badge{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; z-index:1;
+    transition: opacity .2s ease;
+  }
+  .clip-card .play-badge svg{ width:56px; height:56px; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.4)); }
+  .clip-card video:not([poster]) + .play-badge,
+  .clip-card.playing .play-badge{ opacity:0; }
+  .clip-card .clip-label{ padding:12px 14px; font-family: var(--mono); font-size:12px; color: var(--muted); text-transform:uppercase; letter-spacing:.04em; }
+
+  /* ---------- full catalog (spec cards, no photo) ---------- */
+  .catalog{ padding: 90px 0 96px; background: var(--cream-deep); }
+  .catalog-note{
+    background: var(--paper); border:1px solid var(--line); border-inline-start:4px solid var(--orange);
+    border-radius:6px; padding:16px 20px; font-size:13.5px; color: var(--muted); margin-bottom:32px; line-height:1.6;
+  }
+  .catalog-note b{ color: var(--ink); }
+  .cat-grid{ display:grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap:20px; }
+  .cat-card{
+    background: var(--paper); border:1px solid var(--line); border-radius:8px; padding:24px 26px;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .cat-card:hover{ transform: translateY(-4px); box-shadow: 0 18px 32px -20px rgba(20,16,10,0.32); border-color: var(--orange); }
+  .cat-card-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:6px; }
+  .cat-card h3{ font-size:16.5px; font-family: var(--display); font-weight:700; line-height:1.25; }
+  .cat-card .model{ font-family: var(--mono); font-size:12px; color: var(--orange-deep); margin-top:3px; }
+  .cat-badge{
+    font-family: var(--mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap;
+    padding:4px 10px; border-radius:20px; background: var(--ink); color: var(--amber); flex-shrink:0;
+  }
+  .cat-specs{ margin:16px 0; }
+  .cat-specs .r{ display:flex; justify-content:space-between; gap:10px; padding:6px 0; border-top:1px dashed var(--line); font-size:12.5px; }
+  .cat-specs .r:first-child{ border-top:none; }
+  .cat-specs .r b{ font-family:var(--mono); font-size:10px; text-transform:uppercase; color: var(--muted); font-weight:500; letter-spacing:.03em; }
+  .cat-specs .r span{ text-align:end; font-weight:600; color: var(--ink); max-width:60%; }
+  .cat-desc{ font-size:13px; color: var(--muted); line-height:1.6; margin-bottom:16px; }
+  .cat-certs{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:18px; }
+  .cat-certs span{ font-family: var(--mono); font-size:10px; letter-spacing:.03em; padding:3px 8px; border-radius:4px; background: rgba(240,99,30,0.08); color: var(--orange-deep); border:1px solid rgba(240,99,30,0.2); }
+  .cat-foot{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between; padding-top:14px; border-top:1px solid var(--line); }
+  .cat-foot a.datasheet{ font-family: var(--mono); font-size:11.5px; color: var(--muted); text-decoration:underline; text-underline-offset:3px; }
+  .cat-foot a.datasheet:hover{ color: var(--orange-deep); }
+  .cat-foot .no-datasheet{ font-family: var(--mono); font-size:11px; color: var(--muted-light); font-style:italic; }
+  @media (max-width: 700px){ .cat-grid{ grid-template-columns: minmax(0,1fr); } }
+
+  @media (max-width: 920px){
+    .stock-grid{ grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+    .clip-grid{ grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+  }
+  @media (max-width: 560px){
+    .stock-grid{ grid-template-columns: minmax(0,1fr); }
+    .clip-grid{ grid-template-columns: minmax(0,1fr); }
+    .stock-banner{ height:160px; }
+  }
+
+  @media (max-width: 1180px){
+    .hero-inner{ grid-template-columns: minmax(0,1fr); }
+    .hero-art{ order:-1; }
+    .who-grid{ grid-template-columns:minmax(0,1fr); }
+    .grid-3{ grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+    .org-grid{ grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+    .contact-grid{ grid-template-columns:minmax(0,1fr); }
+    nav.links{
+      display: none; position:absolute; top:100%; inset-inline-start:0; inset-inline-end:0; background: var(--cream);
+      flex-direction:column; gap:0; border-bottom:1px solid var(--line); padding: 6px 0;
+    }
+    nav.links.open{ display:flex; }
+    nav.links a{ padding: 14px 28px; }
+    nav.links a::after{ display:none; }
+    .menu-toggle{ display:flex; }
+  }
+  @media (max-width: 560px){
+    .grid-3{ grid-template-columns: minmax(0,1fr); }
+    .org-grid{ grid-template-columns: minmax(0,1fr); }
+    .hero-stats{ grid-template-columns:minmax(0,1fr); }
+    .hero-stats div{ border-inline-end:none; border-bottom:1px solid var(--line-dark); }
+    .hero-stats div:last-child{ border-bottom:none; }
+    .compare{ font-size:13px; }
+    .compare th, .compare td{ padding:12px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#top" class="brand">
+      <img src="assets/logo.png" alt="شعار شركة المجاهد أكسبانشن">
+      <span class="brand-text">المجاهد<span>لتوسعة الأنشطة المتعددة</span></span>
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#who">من نحن</a>
+      <a href="#products">منتجاتنا</a>
+      <a href="#stock">المخزون المتوفر</a>
+      <a href="#catalog">الكتالوج الكامل</a>
+      <a href="#services">خدماتنا</a>
+      <a href="#structure">الهيكل التنظيمي</a>
+      <a href="mcb-sizing-calculator-ar.html">حاسبة القواطع</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+    <div class="nav-cta">
+      <div class="social-links">
+        <a href="https://www.facebook.com/profile.php?id=61571283867613" target="_blank" rel="noopener" aria-label="المجاهد على فيسبوك">
+          <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.24 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.44 2.91h-2.34V22C18.34 21.24 22 17.08 22 12.06z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/28572238/" target="_blank" rel="noopener" aria-label="المجاهد على لينكدإن">
+          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.27 2.38 4.27 5.47v6.27zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        </a>
+      </div>
+      <a class="btn btn-ghost" href="index.html" style="font-family: var(--mono);">EN</a>
+      <a class="btn btn-solid" href="tel:+249969520647">اتصل بنا</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="hero-tag">تأسست 2024 · كسلا والخرطوم، السودان</div>
+      <h1>مصدركم الموحد لـ<em>كهرباء الجهد المنخفض</em> والطاقة الشمسية والتوريد الصناعي</h1>
+      <p class="lede">توفر شركة المجاهد أكسبانشن مواد الجهد المنخفض وأنظمة الطاقة الشمسية والخدمات الصناعية المتكاملة — من مقرنا في كسلا ومعرضنا في الخرطوم، مباشرة إلى موقع مصنعكم.</p>
+      <p class="ar">شركة المجاهد أكسبانشن لألنشطة المتعددة المحدودة — شراكة قوية مثمرة ومستقبل مؤمن</p>
+      <div class="hero-ctas">
+        <a class="btn btn-solid" href="mailto:almoajahedexpansion@gmail.com">راسلنا</a>
+        <a class="btn btn-ghost on-dark" href="#products">تصفح المنتجات</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="frame">
+        <img src="assets/hero-mark.png" alt="الهوية التجارية لشركة المجاهد أكسبانشن">
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="hero-stats">
+      <div><div class="num">2024</div><div class="lbl">تأسست الشركة</div></div>
+      <div><div class="num">LV · Solar · Ind.</div><div class="lbl">الأنشطة الأساسية</div></div>
+      <div><div class="num">+5</div><div class="lbl">شاحنات الأسطول المملوكة</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="circuit" aria-hidden="true">
+  <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+    <path class="trace" d="M0 20 H540 M660 20 H1200"/>
+    <circle class="node" cx="600" cy="20" r="8"/>
+  </svg>
+</div>
+
+<section class="who" id="who">
+  <div class="wrap who-grid">
+    <div>
+      <div class="eyebrow">من نحن</div>
+      <h2 style="font-size:clamp(26px,3vw,36px); margin-bottom:22px;">شركة متعددة الأنشطة بُنيت لخدمة أصحاب المصانع في السودان</h2>
+      <p>تأسست شركة المجاهد أكسبانشن في عام 2024، وهي شركة محدودة متعددة الأنشطة مقرها الرئيسي في كسلا، السودان، مع معرض مخصص في قلب الخرطوم. نتخصص في توريد مواد الجهد المنخفض الكهربائية، وحلول الطاقة الشمسية المتجددة، والخدمات الصناعية المتكاملة — ما يجعلنا الشريك الموثوق الأوحد لأصحاب المصانع في جميع أنحاء السودان.</p>
+      <p>يتيح لنا أسطولنا الخاص المكوّن من أكثر من خمس شاحنات توصيل المواد والمعدات مباشرة إلى موقعكم، في الموعد المحدد، في كل مرة. سواء كنتم بحاجة إلى محول واحد أو تجهيز كهربائي كامل لمصنع، فإن المجاهد تمتلك المخزون والفريق الهندسي واللوجستيات اللازمة للتنفيذ.</p>
+      <div class="ar-block">
+        Established in 2024, Almojahed Expansion Company Ltd. is headquartered in Kassala, Sudan, with a showroom in Khartoum, specializing in LV materials, solar solutions and integrated industrial services.
+      </div>
+    </div>
+    <div class="who-visual">
+      <h4>نبذة عن الشركة</h4>
+      <div class="fact-row"><b>التأسيس</b><span>2024 · السودان</span></div>
+      <div class="fact-row"><b>المقر الرئيسي</b><span>كسلا</span></div>
+      <div class="fact-row"><b>المعرض</b><span>قلب الخرطوم</span></div>
+      <div class="fact-row"><b>الأسطول</b><span>+5 شاحنات مملوكة</span></div>
+      <div class="fact-row"><b>الأنشطة الأساسية</b><span>LV · SOLAR · INDUSTRIAL</span></div>
+      <div class="fact-row"><b>الهيكل التنظيمي</b><span>4 أقسام</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">منتجاتنا</div>
+      <h2 style="font-size:clamp(26px,3vw,36px);">متوفرة وجاهزة من معرضنا في الخرطوم</h2>
+      <p>مجموعة شاملة من مواد الجهد المنخفض الكهربائية وأنظمة الطاقة الشمسية، متاحة للتسليم في نفس اليوم.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="ic">☀️</div>
+        <h3>ألواح شمسية</h3>
+        <div class="ar-name">Solar Panels</div>
+        <p>ألواح أحادية وعديدة البلورات للتركيبات الصناعية والتجارية.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🔋</div>
+        <h3>عواكس وبطاريات</h3>
+        <div class="ar-name">Inverters &amp; Batteries</div>
+        <p>عواكس شمسية، أنظمة هجينة، بطاريات دورة عميقة، وأنظمة UPS.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🔌</div>
+        <h3>محولات</h3>
+        <div class="ar-name">Transformers</div>
+        <p>محولات جهد منخفض ومتوسط للمصانع وشبكات التوزيع.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🧰</div>
+        <h3>لوحات كهربائية</h3>
+        <div class="ar-name">LV Switchgear</div>
+        <p>قواطع MCB وMCCB وACB وRCD، ولوحات ولوحات التوزيع.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🔦</div>
+        <h3>كابلات وأسلاك</h3>
+        <div class="ar-name">LV Cables &amp; Wiring</div>
+        <p>مجموعة كاملة من كابلات الجهد المنخفض، الكابلات المدرعة، القنوات والمواسير.</p>
+      </div>
+      <div class="card">
+        <div class="ic">💡</div>
+        <h3>إضاءة وملحقات</h3>
+        <div class="ar-name">Lighting &amp; Accessories</div>
+        <p>إضاءة LED، مقابس، مفاتيح، قوابس — جميع ملحقات الجهد المنخفض.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stock" id="stock">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">المخزون المتوفر</div>
+      <h2 style="font-size:clamp(26px,3vw,36px);">في المستودع الآن</h2>
+      <p>وحدات حقيقية، صور حقيقية — مباشرة من مخزوننا في كسلا. الأسعار والدفع الإلكتروني قادمان قريبًا؛ في الوقت الحالي، اطلب عرض سعر وسيقوم فريقنا بتأكيد التوفر والتكلفة.</p>
+      <div class="trust-strip">
+        <span>✓ مخزون CHINT أصلي</span>
+        <span>✓ معتمد CE و RoHS</span>
+        <span>✓ مطابق لمعايير IEC/EN</span>
+      </div>
+    </div>
+    <div class="stock-banner">
+      <img src="assets/products/warehouse.jpg" alt="مخزون شركة المجاهد من منتجات CHINT الكهربائية">
+    </div>
+    <div class="filter-tabs" id="filterTabs">
+      <button class="ftab active" data-filter="all">كل المنتجات</button>
+      <button class="ftab" data-filter="MCB">MCB</button>
+      <button class="ftab" data-filter="MCCB">MCCB</button>
+      <button class="ftab" data-filter="Contactor">كونتاكتور</button>
+    </div>
+    <div class="stock-grid" id="stockGrid">
+
+      <div class="stock-card" data-product="nxb63" data-category="MCB">
+        <div class="viewer" data-product="nxb63">
+          <span class="badge">MCB</span>
+          <img src="assets/products/tagged/nxb63_1.jpg" alt="قاطع دائرة مصغر CHINT NXB-63" data-main>
+          <span class="zoom-hint">اضغط للتكبير</span>
+        </div>
+        <div class="thumbs" data-product="nxb63">
+          <img src="assets/products/tagged/nxb63_1.jpg" class="active" data-idx="0">
+          <img src="assets/products/tagged/nxb63_2.jpg" data-idx="1">
+          <img src="assets/products/tagged/nxb63_back.jpg" data-idx="2">
+          <img src="assets/products/tagged/nxb63_box.jpg" data-idx="3">
+          <img src="assets/products/tagged/nxb63_boxstack.jpg" data-idx="4">
+        </div>
+        <div class="body">
+          <h3>CHINT NXB-63 MCB</h3>
+          <div class="model">الموديل NXB-63 · 814095 / 814016 / 814013</div>
+          <ul class="specs">
+            <li><b>الأقطاب</b><span>1P &amp; 2P</span></li>
+            <li><b>المنحنيات المتوفرة</b><span>C10 · C16 · C25 · C32</span></li>
+            <li><b>قدرة القطع</b><span>6kA</span></li>
+            <li><b>المعيار</b><span>IEC/EN 60898-1</span></li>
+          </ul>
+          <div class="price-row">
+            <span class="price-note">السعر عند الطلب</span>
+            <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">اطلب عرض سعر</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stock-card" data-product="nb1dc" data-category="MCB">
+        <div class="viewer" data-product="nb1dc">
+          <span class="badge">MCB · DC</span>
+          <img src="assets/products/tagged/nb1_63dc.jpg" alt="CHINT NB1-63DC solar DC circuit breaker" data-main>
+          <span class="zoom-hint">اضغط للتكبير</span>
+        </div>
+        <div class="thumbs" data-product="nb1dc">
+          <img src="assets/products/tagged/nb1_63dc.jpg" class="active" data-idx="0">
+        </div>
+        <div class="body">
+          <h3>CHINT NB1-63DC</h3>
+          <div class="model">قاطع جانب التيار المستمر للطاقة الشمسية · C20A</div>
+          <ul class="specs">
+            <li><b>التيار الاسمي</b><span>20A</span></li>
+            <li><b>Ue (DC)</b><span>500V</span></li>
+            <li><b>Icu / Ics</b><span>6kA</span></li>
+            <li><b>المعيار</b><span>IEC/EN 60947-2 · TÜV</span></li>
+          </ul>
+          <div class="price-row">
+            <span class="price-note">السعر عند الطلب</span>
+            <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">اطلب عرض سعر</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stock-card" data-product="dz158" data-category="MCCB">
+        <div class="viewer" data-product="dz158">
+          <span class="badge">MCCB</span>
+          <img src="assets/products/tagged/dz158_held.jpg" alt="قاطع مصبوب CHINT DZ158-125" data-main>
+          <span class="zoom-hint">اضغط للتكبير</span>
+        </div>
+        <div class="thumbs" data-product="dz158">
+          <img src="assets/products/tagged/dz158_held.jpg" class="active" data-idx="0">
+          <img src="assets/products/tagged/dz158_box.jpg" data-idx="1">
+        </div>
+        <div class="body">
+          <h3>CHINT DZ158-125 MCCB</h3>
+          <div class="model">الموديل DZ158-125 · 158104</div>
+          <ul class="specs">
+            <li><b>In</b><span>125A</span></li>
+            <li><b>الأقطاب</b><span>2P</span></li>
+            <li><b>Ue</b><span>400V ~ 50Hz</span></li>
+            <li><b>Icu = Ics</b><span>6kA</span></li>
+          </ul>
+          <div class="price-row">
+            <span class="price-note">السعر عند الطلب</span>
+            <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">اطلب عرض سعر</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stock-card" data-product="nxm250" data-category="MCCB">
+        <div class="viewer" data-product="nxm250">
+          <span class="badge">MCCB</span>
+          <img src="assets/products/tagged/nxm250_1.jpg" alt="قاطع مصبوب CHINT NXM-250H/3300" data-main>
+          <span class="zoom-hint">اضغط للتكبير</span>
+        </div>
+        <div class="thumbs" data-product="nxm250">
+          <img src="assets/products/tagged/nxm250_1.jpg" class="active" data-idx="0">
+          <img src="assets/products/tagged/nxm250_2.jpg" data-idx="1">
+        </div>
+        <div class="body">
+          <h3>CHINT NXM-250H/3300</h3>
+          <div class="model">MCCB ثلاثي الأقطاب · In 160A</div>
+          <ul class="specs">
+            <li><b>In</b><span>160A</span></li>
+            <li><b>Ui / Uimp</b><span>800V / 8kV</span></li>
+            <li><b>Icu/Ics (220-240V)</b><span>75/50kA</span></li>
+            <li><b>الشهادات</b><span>DEKRA · EAC · CE</span></li>
+          </ul>
+          <div class="price-row">
+            <span class="price-note">السعر عند الطلب</span>
+            <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">اطلب عرض سعر</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stock-card" data-product="nxm630" data-category="MCCB">
+        <div class="viewer" data-product="nxm630">
+          <span class="badge">MCCB</span>
+          <img src="assets/products/tagged/nxm630_1.jpg" alt="قاطع مصبوب إطار كبير CHINT NXM-630S/3300" data-main>
+          <span class="zoom-hint">اضغط للتكبير</span>
+        </div>
+        <div class="thumbs" data-product="nxm630">
+          <img src="assets/products/tagged/nxm630_1.jpg" class="active" data-idx="0">
+          <img src="assets/products/tagged/nxm630_2.jpg" data-idx="1">
+        </div>
+        <div class="body">
+          <h3>CHINT NXM-630S/3300</h3>
+          <div class="model">MCCB إطار كبير</div>
+          <ul class="specs">
+            <li><b>الحجم (الإطار)</b><span>630S</span></li>
+            <li><b>الاستخدام</b><span>التوزيع الرئيسي / تغذية المصانع</span></li>
+            <li><b>نشرة المواصفات الكاملة</b><span>متوفر عند الطلب</span></li>
+          </ul>
+          <div class="price-row">
+            <span class="price-note">السعر عند الطلب</span>
+            <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">اطلب عرض سعر</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stock-card" data-product="nc1" data-category="Contactor">
+        <div class="viewer" data-product="nc1">
+          <span class="badge">كونتاكتور</span>
+          <img src="assets/products/tagged/nc1_contactor.jpg" alt="كونتاكتور تيار متردد من سلسلة CHINT NC1" data-main>
+          <span class="zoom-hint">اضغط للتكبير</span>
+        </div>
+        <div class="thumbs" data-product="nc1">
+          <img src="assets/products/tagged/nc1_contactor.jpg" class="active" data-idx="0">
+        </div>
+        <div class="body">
+          <h3>كونتاكتور تيار متردد CHINT NC1</h3>
+          <div class="model">الموديل NC1-12 / NC1-1210</div>
+          <ul class="specs">
+            <li><b>الجهد</b><span>220V · 50/60Hz</span></li>
+            <li><b>الاعتماد</b><span>معتمد UL</span></li>
+            <li><b>المطابقة</b><span>RoHS · CE</span></li>
+          </ul>
+          <div class="price-row">
+            <span class="price-note">السعر عند الطلب</span>
+            <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">اطلب عرض سعر</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-head" style="margin-top:56px; margin-bottom:24px;">
+      <div class="eyebrow">فيديوهات فتح الصناديق واللقطات القريبة</div>
+      <h2 style="font-size:clamp(22px,2.6vw,30px);">شاهدها قبل أن تشتريها</h2>
+      <p>مقاطع قصيرة مباشرة من أرضية المستودع.</p>
+    </div>
+    <div class="clip-grid">
+      <div class="clip-card" data-clip="1">
+        <div class="clip-wrap">
+          <video controls preload="none" poster="assets/video/clip1_poster.jpg"><source src="assets/video/clip1.mp4" type="video/mp4"></video>
+          <span class="duration">0:37</span>
+          <span class="play-badge"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="27" fill="rgba(27,23,18,0.55)" stroke="white" stroke-width="1.5"/><path d="M23 18 L40 28 L23 38 Z" fill="white"/></svg></span>
+        </div>
+        <div class="clip-label">مقطع المستودع 1</div>
+      </div>
+      <div class="clip-card" data-clip="2">
+        <div class="clip-wrap">
+          <video controls preload="none" poster="assets/video/clip2_poster.jpg"><source src="assets/video/clip2.mp4" type="video/mp4"></video>
+          <span class="duration">0:04</span>
+          <span class="play-badge"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="27" fill="rgba(27,23,18,0.55)" stroke="white" stroke-width="1.5"/><path d="M23 18 L40 28 L23 38 Z" fill="white"/></svg></span>
+        </div>
+        <div class="clip-label">مقطع المستودع 2</div>
+      </div>
+      <div class="clip-card" data-clip="3">
+        <div class="clip-wrap">
+          <video controls preload="none" poster="assets/video/clip3_poster.jpg"><source src="assets/video/clip3.mp4" type="video/mp4"></video>
+          <span class="duration">0:31</span>
+          <span class="play-badge"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="27" fill="rgba(27,23,18,0.55)" stroke="white" stroke-width="1.5"/><path d="M23 18 L40 28 L23 38 Z" fill="white"/></svg></span>
+        </div>
+        <div class="clip-label">مقطع المستودع 3</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="catalog" id="catalog">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">الكتالوج الكامل</div>
+      <h2 style="font-size:clamp(26px,3vw,36px);">كل ما يمكننا توريده، تم التحقق منه</h2>
+      <p>بالإضافة إلى المخزون المصوَّر أعلاه، هذه الأصناف مؤكدة ومتاحة للطلب — قواطع CHINT MCCB أصلية، وموديلات إضافية من MCB سلسلة NXB-63، وأجهزة حماية من الصواعق للطاقة الشمسية من Leitong. تم مطابقة المواصفات مع وثائق الشركة المصنّعة.</p>
+    </div>
+
+    <div class="catalog-note">
+      <b>بخصوص قدرة القطع:</b> تنشر مواصفات CHINT الرسمية لسلسلة NXM قدرة القطع حسب <em>الفئة</em> بدلاً من رقم واحد لكل حجم — E (15kA)، S (25–36kA)، F (36–50kA)، H (50–70kA). جميع وحدات NXM الأربعة أدناه من الفئة H. عرضنا هذا النطاق الموثّق بدلاً من تخمين رقم عشري واحد؛ يتم تأكيد قيمة Icu/Ics الدقيقة لحجمك المحدد من النشرة الفنية لـ CHINT عند مرحلة عرض السعر.
+    </div>
+
+    <div class="filter-tabs" id="catalogFilterTabs">
+      <button class="ftab active" data-filter="all">الكل</button>
+      <button class="ftab" data-filter="MCCB">MCCB</button>
+      <button class="ftab" data-filter="MCB">MCB</button>
+      <button class="ftab" data-filter="SPD">حماية شمسية SPD</button>
+    </div>
+
+    <div class="cat-grid" id="catalogGrid">
+
+      <div class="cat-card" data-category="MCCB">
+        <div class="cat-card-top"><div><h3>CHINT NXM-125H MCCB 3P 100A</h3><div class="model">NXM-125H/3300</div></div><span class="cat-badge">MCCB</span></div>
+        <div class="cat-specs">
+          <div class="r"><b>الأقطاب</b><span>3P</span></div>
+          <div class="r"><b>التيار الاسمي</b><span>100A</span></div>
+          <div class="r"><b>الجهد الاسمي</b><span>400V AC</span></div>
+          <div class="r"><b>قدرة القطع</b><span>الفئة H (50–70kA)</span></div>
+          <div class="r"><b>النوع</b><span>حراري-مغناطيسي، ثابت</span></div>
+          <div class="r"><b>المعيار</b><span>IEC/EN 60947-2</span></div>
+        </div>
+        <div class="cat-desc">قاطع MCCB حراري-مغناطيسي عالي قدرة القطع (H) للوحات التوزيع الرئيسية والفرعية. معتمد CE، النسخة الدولية.</div>
+        <div class="cat-certs"><span>CE</span><span>CQC</span></div>
+        <div class="cat-foot">
+          <a class="datasheet" href="https://www.chintglobal.com/global/en/products/low-voltage/iec/secondary-power-distribution/nxm.html" target="_blank" rel="noopener">عرض النشرة الفنية الرسمية ↗</a>
+          <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">اطلب عرض سعر</button>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="MCCB">
+        <div class="cat-card-top"><div><h3>CHINT NXM-250H MCCB 3P 160A</h3><div class="model">NXM-250H/3300</div></div><span class="cat-badge">MCCB</span></div>
+        <div class="cat-specs">
+          <div class="r"><b>الأقطاب</b><span>3P</span></div>
+          <div class="r"><b>التيار الاسمي</b><span>160A</span></div>
+          <div class="r"><b>الجهد الاسمي</b><span>400V AC</span></div>
+          <div class="r"><b>قدرة القطع</b><span>الفئة H (50–70kA)</span></div>
+          <div class="r"><b>النوع</b><span>حراري-مغناطيسي، ثابت</span></div>
+          <div class="r"><b>المعيار</b><span>IEC/EN 60947-2</span></div>
+        </div>
+        <div class="cat-desc">قاطع عالي قدرة القطع للخدمة الشاقة، مخصص للوحات التوزيع والآلات. هذا هو نفس حجم NXM-250H/3300 المصوَّر بالفعل في قسم المخزون المتوفر أعلاه.</div>
+        <div class="cat-certs"><span>CE</span><span>CQC</span></div>
+        <div class="cat-foot">
+          <a class="datasheet" href="https://www.chintglobal.com/global/en/products/low-voltage/iec/secondary-power-distribution/nxm.html" target="_blank" rel="noopener">عرض النشرة الفنية الرسمية ↗</a>
+          <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">اطلب عرض سعر</button>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="MCCB">
+        <div class="cat-card-top"><div><h3>CHINT NXM-250H MCCB 3P 250A</h3><div class="model">NXM-250H/3300</div></div><span class="cat-badge">MCCB</span></div>
+        <div class="cat-specs">
+          <div class="r"><b>الأقطاب</b><span>3P</span></div>
+          <div class="r"><b>التيار الاسمي</b><span>250A</span></div>
+          <div class="r"><b>الجهد الاسمي</b><span>400V AC</span></div>
+          <div class="r"><b>قدرة القطع</b><span>الفئة H (50–70kA)</span></div>
+          <div class="r"><b>النوع</b><span>حراري-مغناطيسي، ثابت</span></div>
+          <div class="r"><b>المعيار</b><span>IEC/EN 60947-2</span></div>
+        </div>
+        <div class="cat-desc">حماية عالية قدرة القطع للتوزيع الرئيسي والدوائر الصناعية، أعلى فئة في مجموعة الحجم 250.</div>
+        <div class="cat-certs"><span>CE</span><span>CQC</span></div>
+        <div class="cat-foot">
+          <a class="datasheet" href="https://www.chintglobal.com/global/en/products/low-voltage/iec/secondary-power-distribution/nxm.html" target="_blank" rel="noopener">عرض النشرة الفنية الرسمية ↗</a>
+          <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">اطلب عرض سعر</button>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="MCCB">
+        <div class="cat-card-top"><div><h3>CHINT NXM-400H MCCB 3P 400A</h3><div class="model">NXM-400H/3300</div></div><span class="cat-badge">MCCB</span></div>
+        <div class="cat-specs">
+          <div class="r"><b>الأقطاب</b><span>3P</span></div>
+          <div class="r"><b>التيار الاسمي</b><span>400A</span></div>
+          <div class="r"><b>الجهد الاسمي</b><span>400V AC</span></div>
+          <div class="r"><b>قدرة القطع</b><span>الفئة H، حتى 70kA</span></div>
+          <div class="r"><b>النوع</b><span>حراري-مغناطيسي، ثابت</span></div>
+          <div class="r"><b>المعيار</b><span>IEC/EN 60947-2</span></div>
+        </div>
+        <div class="cat-desc">قاطع من الفئة العليا لعالي قدرة القطع، مخصص للمغذي الرئيسي والأحمال الصناعية الثقيلة.</div>
+        <div class="cat-certs"><span>CE</span><span>CQC</span></div>
+        <div class="cat-foot">
+          <a class="datasheet" href="https://www.chintglobal.com/global/en/products/low-voltage/iec/secondary-power-distribution/nxm.html" target="_blank" rel="noopener">عرض النشرة الفنية الرسمية ↗</a>
+          <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">اطلب عرض سعر</button>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="MCB">
+        <div class="cat-card-top"><div><h3>CHINT NXB-63 MCB 2P C63</h3><div class="model">NXB-63 (814098)</div></div><span class="cat-badge">MCB</span></div>
+        <div class="cat-specs">
+          <div class="r"><b>الأقطاب</b><span>2P</span></div>
+          <div class="r"><b>التيار الاسمي</b><span>63A</span></div>
+          <div class="r"><b>الجهد الاسمي</b><span>230/400V AC</span></div>
+          <div class="r"><b>قدرة القطع</b><span>6kA</span></div>
+          <div class="r"><b>النوع</b><span>منحنى C</span></div>
+          <div class="r"><b>المعيار</b><span>IEC/EN 60898-1</span></div>
+        </div>
+        <div class="cat-desc">قاطع مدمج لسكة DIN مخصص للتغذية الفرعية والدوائر النهائية ذات التيار الأعلى. من نفس عائلة وحدة 2P C32 المصوَّرة، بتصنيف أعلى.</div>
+        <div class="cat-certs"><span>CE (Intertek)</span><span>RoHS</span></div>
+        <div class="cat-foot">
+          <a class="datasheet" href="https://www.chintglobal.com/global/en/products/low-voltage/iec/final-power-distribution/nxb-63.html" target="_blank" rel="noopener">عرض النشرة الفنية الرسمية ↗</a>
+          <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">اطلب عرض سعر</button>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="MCB">
+        <div class="cat-card-top"><div><h3>CHINT NXB-63 MCB 3P C32</h3><div class="model">NXB-63 (814173)</div></div><span class="cat-badge">MCB</span></div>
+        <div class="cat-specs">
+          <div class="r"><b>الأقطاب</b><span>3P</span></div>
+          <div class="r"><b>التيار الاسمي</b><span>32A</span></div>
+          <div class="r"><b>الجهد الاسمي</b><span>400V AC</span></div>
+          <div class="r"><b>قدرة القطع</b><span>6kA</span></div>
+          <div class="r"><b>النوع</b><span>منحنى C</span></div>
+          <div class="r"><b>المعيار</b><span>IEC/EN 60898-1</span></div>
+        </div>
+        <div class="cat-desc">حماية ثلاثية الأطوار للمحركات والمضخات ودوائر التوزيع.</div>
+        <div class="cat-certs"><span>CE (Intertek)</span><span>RoHS</span></div>
+        <div class="cat-foot">
+          <a class="datasheet" href="https://www.chintglobal.com/global/en/products/low-voltage/iec/final-power-distribution/nxb-63.html" target="_blank" rel="noopener">عرض النشرة الفنية الرسمية ↗</a>
+          <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">اطلب عرض سعر</button>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="MCB">
+        <div class="cat-card-top"><div><h3>CHINT NXB-63 MCB 3P C63</h3><div class="model">NXB-63 (814176)</div></div><span class="cat-badge">MCB</span></div>
+        <div class="cat-specs">
+          <div class="r"><b>الأقطاب</b><span>3P</span></div>
+          <div class="r"><b>التيار الاسمي</b><span>63A</span></div>
+          <div class="r"><b>الجهد الاسمي</b><span>400V AC</span></div>
+          <div class="r"><b>قدرة القطع</b><span>6kA</span></div>
+          <div class="r"><b>النوع</b><span>منحنى C</span></div>
+          <div class="r"><b>المعيار</b><span>IEC/EN 60898-1</span></div>
+        </div>
+        <div class="cat-desc">قاطع ثلاثي الأطوار للأحمال الصناعية والتجارية ذات التيار الأعلى.</div>
+        <div class="cat-certs"><span>CE (Intertek)</span><span>RoHS</span></div>
+        <div class="cat-foot">
+          <a class="datasheet" href="https://www.chintglobal.com/global/en/products/low-voltage/iec/final-power-distribution/nxb-63.html" target="_blank" rel="noopener">عرض النشرة الفنية الرسمية ↗</a>
+          <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">اطلب عرض سعر</button>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="SPD">
+        <div class="cat-card-top"><div><h3>Leitong LT1-40 DC SPD 2P 500V</h3><div class="model">LT1-40 (500VDC)</div></div><span class="cat-badge">SPD شمسي</span></div>
+        <div class="cat-specs">
+          <div class="r"><b>الأقطاب</b><span>2P</span></div>
+          <div class="r"><b>In / Imax</b><span>20kA / 40kA</span></div>
+          <div class="r"><b>الجهد الاسمي</b><span>500V DC (Uc 670V)</span></div>
+          <div class="r"><b>مستوى الحماية</b><span>Up ≤ 2.0kV</span></div>
+          <div class="r"><b>النوع</b><span>النوع 2، تيار مستمر شمسي</span></div>
+          <div class="r"><b>المعيار</b><span>IEC 61643-11</span></div>
+        </div>
+        <div class="cat-desc">جهاز حماية من الصواعق لأنظمة الطاقة الشمسية — يحمي من صواعق البرق وطفرات التحويل. نافذة حالة مرئية أخضر/أحمر. مثالي للطاقة الشمسية السكنية 3–10 كيلوواط.</div>
+        <div class="cat-certs"><span>CE</span></div>
+        <div class="cat-foot">
+          <span class="no-datasheet">علامة Leitong — النشرة الفنية عند الطلب</span>
+          <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">اطلب عرض سعر</button>
+        </div>
+      </div>
+
+      <div class="cat-card" data-category="SPD">
+        <div class="cat-card-top"><div><h3>Leitong LT1-40 DC SPD 2P 1000V</h3><div class="model">LT1-40 (1000VDC)</div></div><span class="cat-badge">SPD شمسي</span></div>
+        <div class="cat-specs">
+          <div class="r"><b>الأقطاب</b><span>2P</span></div>
+          <div class="r"><b>In / Imax</b><span>20kA / 40kA</span></div>
+          <div class="r"><b>الجهد الاسمي</b><span>1000V DC (Uc 1200V)</span></div>
+          <div class="r"><b>مستوى الحماية</b><span>Up ≤ 3.2kV</span></div>
+          <div class="r"><b>النوع</b><span>النوع 2، تيار مستمر شمسي</span></div>
+          <div class="r"><b>المعيار</b><span>IEC 61643-11</span></div>
+        </div>
+        <div class="cat-desc">حماية من الصواعق والطفرات لسلاسل شمسية أكبر، مع مؤشر حالة مرئي.</div>
+        <div class="cat-certs"><span>CE</span></div>
+        <div class="cat-foot">
+          <span class="no-datasheet">علامة Leitong — النشرة الفنية عند الطلب</span>
+          <button class="qbtn" onclick="document.getElementById('quote-form-wrap').scrollIntoView({behavior:'smooth'})">اطلب عرض سعر</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">إغلاق ✕</button>
+  <div class="lightbox-inner">
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-thumbs" id="lightboxThumbs"></div>
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+</div>
+
+<section class="services on-dark" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">خدماتنا</div>
+      <h2 style="font-size:clamp(26px,3vw,36px); color:var(--paper);">عقد واحد مسؤول، من البداية حتى النهاية</h2>
+      <p>التصميم، التوريد، التركيب والصيانة — يغطي فريقنا متعدد التخصصات كل مرحلة من مشروعكم ضمن دائرة مسؤولية واحدة.</p>
+    </div>
+    <div class="svc-list">
+      <div class="svc">
+        <div class="node-col"><div class="dot"></div><div class="stem"></div></div>
+        <div>
+          <h3>التوريد والتوزيع الكهربائي للجهد المنخفض <span class="ar">LV Electrical Supply &amp; Distribution</span></h3>
+          <p>توريد كامل لجميع مواد الجهد المنخفض — كابلات، لوحات كهربائية، قواطع MCB وMCCB، مقابس، محولات وملحقات. تسليم في نفس اليوم من معرضنا في الخرطوم؛ الطلبات بالجملة للمصانع والمقاولين مرحب بها.</p>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="node-col"><div class="dot"></div><div class="stem"></div></div>
+        <div>
+          <h3>الطاقة الشمسية والمتجددة <span class="ar">Solar &amp; Renewable Energy</span></h3>
+          <p>تصميم وتوريد وتشغيل أنظمة الطاقة الشمسية للمنشآت الصناعية والتجارية — عواكس، بطاريات، ألواح، تركيبات وربط بالشبكة. ضمان كامل ودعم ما بعد البيع.</p>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="node-col"><div class="dot"></div><div class="stem"></div></div>
+        <div>
+          <h3>التركيب والصيانة <span class="ar">Installation &amp; Maintenance</span></h3>
+          <p>تركيب احترافي للوحات الجهد المنخفض، لوحات التوزيع، الإضاءة، التأريض وإدارة الكابلات. عقود صيانة وقائية وعلاجية للمصانع.</p>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="node-col"><div class="dot"></div><div class="stem"></div></div>
+        <div>
+          <h3>تجهيز المصانع والمشاريع الجاهزة <span class="ar">Factory Fit-Out &amp; Turnkey</span></h3>
+          <p>تجهيز كهربائي كامل للجهد المنخفض للمصانع الجديدة والتوسعات — من التصميم وجدول الكميات وحتى التركيب والاختبار والتشغيل والتسليم.</p>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="node-col"><div class="dot"></div><div class="stem"></div></div>
+        <div>
+          <h3>اللوجستيات والتوصيل بالأسطول <span class="ar">Fleet Logistics &amp; Delivery</span></h3>
+          <p>أكثر من خمس شاحنات مملوكة لنقل المواد الثقيلة. توصيل مجدول وموثوق للمعدات والكابلات وأنظمة الطاقة الشمسية إلى مواقع المصانع في جميع أنحاء السودان.</p>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="node-col"><div class="dot"></div></div>
+        <div>
+          <h3>معرض الخرطوم والمبيعات الفنية <span class="ar">Khartoum Showroom &amp; Technical Sales</span></h3>
+          <p>يعرض معرضنا في الخرطوم مجموعة المنتجات الكاملة. يساعد فريق المبيعات الفنية في تحديد المواصفات وجداول الكميات واختيار المنتجات لأي حجم مشروع.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="structure" id="structure">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">الهيكل التنظيمي</div>
+      <h2 style="font-size:clamp(26px,3vw,36px);">أربعة أقسام، فريق واحد منسّق</h2>
+      <p>تعمل المجاهد من خلال أربعة أقسام متكاملة، يقود كل منها فريق مخصص يرفع تقاريره للإدارة المركزية — ما يضمن المساءلة والتنسيق السلس.</p>
+    </div>
+    <div class="org-top">
+      <b>مجلس الإدارة · المدير العام</b>
+      <span>Board of Directors · General Manager</span>
+    </div>
+    <div class="org-stem"></div>
+    <div class="org-grid">
+      <div class="div-card">
+        <h4>القانوني والتجاري</h4>
+        <div class="ar">Legal &amp; Commercial</div>
+        <ul>
+          <li>العقود والامتثال</li>
+          <li>المشتريات والتوريد</li>
+          <li>المبيعات والعملاء</li>
+          <li>المناقصات والعطاءات</li>
+          <li>معرض الخرطوم</li>
+        </ul>
+      </div>
+      <div class="div-card">
+        <h4>الفني</h4>
+        <div class="ar">Technical</div>
+        <ul>
+          <li>تصميم وهندسة الجهد المنخفض</li>
+          <li>تصميم الأنظمة الشمسية</li>
+          <li>جداول الكميات والمواصفات</li>
+          <li>ضمان الجودة</li>
+          <li>الدعم الفني</li>
+        </ul>
+      </div>
+      <div class="div-card">
+        <h4>العمليات</h4>
+        <div class="ar">Operations</div>
+        <ul>
+          <li>الأسطول (+5 شاحنات)</li>
+          <li>إدارة المستودع</li>
+          <li>التوصيل للموقع</li>
+          <li>مراقبة المخزون</li>
+          <li>الاستيراد والجمارك</li>
+        </ul>
+      </div>
+      <div class="div-card">
+        <h4>الخدمات</h4>
+        <div class="ar">Services</div>
+        <ul>
+          <li>التركيب الكهربائي</li>
+          <li>تشغيل الأنظمة الشمسية</li>
+          <li>تجهيز المصانع</li>
+          <li>الصيانة الوقائية</li>
+          <li>ما بعد البيع</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">لماذا المجاهد</div>
+      <h2 style="font-size:clamp(26px,3vw,36px);">أكثر من مجرد مورّد — شريك تشغيلي متكامل</h2>
+      <p>أصحاب المصانع الذين يتعاملون مع المجاهد يبقون مغطّين من أول تواصل وحتى التشغيل النهائي.</p>
+    </div>
+    <table class="compare">
+      <thead><tr><th>بدون شريك</th><th>مع المجاهد</th></tr></thead>
+      <tbody>
+        <tr><td><span class="x">✗</span>موردون متعددون، إجراءات شراء بطيئة</td><td><span class="ok">✓</span>مصدر واحد — مواد وخدمات الجهد المنخفض</td></tr>
+        <tr><td><span class="x">✗</span>لا أسطول، توصيل مكلف عبر طرف ثالث</td><td><span class="ok">✓</span>+5 شاحنات، توصيل مباشر لموقعكم</td></tr>
+        <tr><td><span class="x">✗</span>لا معرض لتقييم المنتجات</td><td><span class="ok">✓</span>معرض الخرطوم — شاهد قبل الشراء</td></tr>
+        <tr><td><span class="x">✗</span>فرق توريد وفنية منفصلة</td><td><span class="ok">✓</span>فريق هندسي واحد منسّق</td></tr>
+        <tr><td><span class="x">✗</span>صيانة عند الحاجة فقط</td><td><span class="ok">✓</span>عقود صيانة وقائية</td></tr>
+        <tr><td><span class="x">✗</span>لا دعم للمشاريع</td><td><span class="ok">✓</span>قدرة تجهيز كاملة وجاهزة</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="circuit on-dark-line" aria-hidden="true" style="background:var(--charcoal);">
+  <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+    <path class="trace" d="M0 20 H540 M660 20 H1200"/>
+    <circle class="node" cx="600" cy="20" r="8"/>
+  </svg>
+</div>
+
+<section class="contact on-dark" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">تواصل معنا</div>
+      <h2 style="font-size:clamp(26px,3vw,36px); color:var(--paper);">زوروا المعرض، أو تواصلوا معنا مباشرة</h2>
+      <p>ندعو أصحاب المصانع ومديري المشاريع والمقاولين لزيارة معرضنا في الخرطوم أو التواصل مع فريقنا مباشرة. استشارات فنية مجانية، عروض أسعار تنافسية، وزيارات ميدانية.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="row"><div class="ic">📞</div><div><b>الهاتف</b><a href="tel:+249969520647">0969 520 647</a></div></div>
+        <div class="row"><div class="ic">✉️</div><div><b>البريد الإلكتروني</b><a href="mailto:almoajahedexpansion@gmail.com">almoajahedexpansion@gmail.com</a></div></div>
+        <div class="row"><div class="ic">🏪</div><div><b>المعرض</b><div class="val">قلب الخرطوم، السودان</div></div></div>
+        <div class="row"><div class="ic">🏢</div><div><b>المقر الرئيسي</b><div class="val">كسلا، السودان</div></div></div>
+        <div class="cta-final">
+          <a class="btn btn-solid" href="tel:+249969520647">اتصل على 0969 520 647</a>
+          <a class="btn btn-ghost on-dark" href="mailto:almoajahedexpansion@gmail.com">أرسل بريدًا إلكترونيًا</a>
+        </div>
+        <div class="cta-final" style="margin-top:18px;">
+          <a class="btn btn-ghost on-dark" href="https://www.facebook.com/profile.php?id=61571283867613" target="_blank" rel="noopener">تابعنا على فيسبوك</a>
+          <a class="btn btn-ghost on-dark" href="https://www.linkedin.com/company/28572238/" target="_blank" rel="noopener">تابعنا على لينكدإن</a>
+        </div>
+      </div>
+      <div class="quote-form" id="quote-form-wrap">
+        <h3>اطلب عرض سعر</h3>
+        <div class="sub">أخبرنا بما تحتاجه — سيتابع معك فريقنا الفني عبر الهاتف أو البريد الإلكتروني.</div>
+        <form action="https://formsubmit.co/almoajahedexpansion@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="طلب عرض سعر جديد — موقع المجاهد">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none">
+          <div class="f-row">
+            <div class="field"><label for="qf-name">الاسم</label><input id="qf-name" type="text" name="Name" placeholder="اسمك" required></div>
+            <div class="field"><label for="qf-company">الشركة</label><input id="qf-company" type="text" name="Company" placeholder="اسم شركتك"></div>
+          </div>
+          <div class="f-row">
+            <div class="field"><label for="qf-email">البريد الإلكتروني</label><input id="qf-email" type="email" name="Email" placeholder="you@email.com" required></div>
+            <div class="field"><label for="qf-phone">الهاتف</label><input id="qf-phone" type="tel" name="Phone" placeholder="+2 ..."></div>
+          </div>
+          <div class="field">
+            <label for="qf-type">نوع المشروع</label>
+            <select id="qf-type" name="Project Type">
+              <option value="">اختر نوع المشروع</option>
+              <option>توريد كهربائي للجهد المنخفض</option>
+              <option>نظام طاقة شمسية</option>
+              <option>خدمات صناعية</option>
+              <option>تجهيز جاهز (Turnkey)</option>
+              <option>عقد صيانة</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="qf-msg">الرسالة</label>
+            <textarea id="qf-msg" name="Message" placeholder="أخبرنا عن متطلبات مشروعك..."></textarea>
+          </div>
+          <button type="submit">إرسال الطلب</button>
+          <div class="note">تُرسل الطلبات مباشرة إلى البريد الإلكتروني almoajahedexpansion@gmail.com.</div>
+        </form>
+      </div>
+    </div>
+    <div class="route" style="margin-top:40px;">
+      <div class="route-label">المقر كسلا ← معرض الخرطوم ← موقعكم</div>
+      <div class="route-line">
+        <svg viewBox="0 0 400 180" preserveAspectRatio="none">
+          <path d="M30 150 C 120 150, 100 40, 200 40 S 320 150, 370 30" fill="none" stroke="#4A4030" stroke-width="2"/>
+          <path d="M30 150 C 120 150, 100 40, 200 40 S 320 150, 370 30" fill="none" stroke="#F0631E" stroke-width="2" stroke-dasharray="6 10">
+            <animate attributeName="stroke-dashoffset" from="0" to="-160" dur="3.2s" repeatCount="indefinite"/>
+          </path>
+          <circle cx="30" cy="150" r="7" fill="#201B14" stroke="#F0A22A" stroke-width="2.5"/>
+          <circle cx="200" cy="40" r="7" fill="#201B14" stroke="#F0631E" stroke-width="2.5"/>
+          <circle cx="370" cy="30" r="7" fill="#201B14" stroke="#F0631E" stroke-width="2.5"/>
+          <text x="14" y="172" fill="#C9BF9C" font-family="IBM Plex Mono, monospace" font-size="11">كسلا</text>
+          <text x="168" y="24" fill="#C9BF9C" font-family="IBM Plex Mono, monospace" font-size="11">الخرطوم</text>
+          <text x="320" y="14" fill="#C9BF9C" font-family="IBM Plex Mono, monospace" font-size="11">موقعك</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <img src="assets/logo.png" alt="شعار المجاهد">
+      <div>
+        <small>شركة المجاهد أكسبانشن — تأسست 2024</small>
+      </div>
+    </div>
+    <div class="social-links on-dark">
+      <a href="https://www.facebook.com/profile.php?id=61571283867613" target="_blank" rel="noopener" aria-label="المجاهد على فيسبوك">
+        <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.24 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.44 2.91h-2.34V22C18.34 21.24 22 17.08 22 12.06z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/28572238/" target="_blank" rel="noopener" aria-label="المجاهد على لينكدإن">
+        <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.27 2.38 4.27 5.47v6.27zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+      </a>
+    </div>
+    <div class="ar-tag">شراكة قوية مثمرة ومستقبل مؤمن</div>
+    <small>&copy; <span id="year"></span> شركة المجاهد أكسبانشن · كسلا والخرطوم، السودان</small>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Scroll-reveal: fade+rise elements into view as the user scrolls
+  const revealTargets = document.querySelectorAll(
+    '.section-head, .card, .svc, .div-card, .contact-card, .quote-form, .who-visual, .compare, .stock-card, .clip-card, .stock-banner, .cat-card, .catalog-note'
+  );
+  revealTargets.forEach(el => el.classList.add('reveal'));
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealTargets.forEach(el => io.observe(el));
+  } else {
+    revealTargets.forEach(el => el.classList.add('in-view'));
+  }
+
+  // ---------- Live Inventory gallery: thumbnail swap + lightbox ----------
+  (function () {
+    const grid = document.getElementById('stockGrid');
+    if (!grid) return;
+
+    // Build a map of product -> ordered list of image sources, from each card's thumbs
+    const productImages = {};
+    grid.querySelectorAll('.thumbs').forEach(thumbRow => {
+      const product = thumbRow.dataset.product;
+      productImages[product] = Array.from(thumbRow.querySelectorAll('img')).map(img => img.getAttribute('src'));
+    });
+
+    function setActiveThumb(product, idx) {
+      grid.querySelectorAll(`.thumbs[data-product="${product}"] img`).forEach((img, i) => {
+        img.classList.toggle('active', i === idx);
+      });
+    }
+
+    function setMainImage(product, idx) {
+      const src = productImages[product][idx];
+      const viewer = grid.querySelector(`.viewer[data-product="${product}"] img[data-main]`);
+      if (viewer) viewer.setAttribute('src', src);
+      setActiveThumb(product, idx);
+    }
+
+    // Thumbnail clicks swap the card's main image
+    grid.querySelectorAll('.thumbs img').forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const product = thumb.closest('.thumbs').dataset.product;
+        const idx = parseInt(thumb.dataset.idx, 10);
+        setMainImage(product, idx);
+      });
+    });
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxThumbs = document.getElementById('lightboxThumbs');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxClose');
+    let currentProduct = null;
+
+    function openLightbox(product, idx) {
+      currentProduct = product;
+      const images = productImages[product];
+      lightboxImg.setAttribute('src', images[idx]);
+      lightboxCaption.textContent = grid.querySelector(`[data-product="${product}"] h3`)?.textContent || '';
+      lightboxThumbs.innerHTML = '';
+      images.forEach((src, i) => {
+        const t = document.createElement('img');
+        t.setAttribute('src', src);
+        if (i === idx) t.classList.add('active');
+        t.addEventListener('click', () => {
+          lightboxImg.setAttribute('src', src);
+          lightboxThumbs.querySelectorAll('img').forEach((el, j) => el.classList.toggle('active', j === i));
+          setMainImage(product, i);
+        });
+        lightboxThumbs.appendChild(t);
+      });
+      lightbox.classList.add('open');
+    }
+
+    grid.querySelectorAll('.viewer').forEach(viewer => {
+      viewer.addEventListener('click', () => {
+        const product = viewer.dataset.product;
+        const activeIdx = Array.from(grid.querySelectorAll(`.thumbs[data-product="${product}"] img`)).findIndex(el => el.classList.contains('active'));
+        openLightbox(product, activeIdx < 0 ? 0 : activeIdx);
+      });
+    });
+
+    lightboxClose.addEventListener('click', () => lightbox.classList.remove('open'));
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+
+    // Category filter tabs
+    const tabs = document.getElementById('filterTabs');
+    if (tabs) {
+      tabs.querySelectorAll('.ftab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          const filter = tab.dataset.filter;
+          grid.querySelectorAll('.stock-card').forEach(card => {
+            const match = filter === 'all' || card.dataset.category === filter;
+            card.classList.toggle('hidden', !match);
+          });
+        });
+      });
+    }
+  })();
+
+  // Full Catalog filter tabs (separate grid, same interaction pattern)
+  (function () {
+    const tabs = document.getElementById('catalogFilterTabs');
+    const catGrid = document.getElementById('catalogGrid');
+    if (!tabs || !catGrid) return;
+    tabs.querySelectorAll('.ftab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const filter = tab.dataset.filter;
+        catGrid.querySelectorAll('.cat-card').forEach(card => {
+          const match = filter === 'all' || card.dataset.category === filter;
+          card.classList.toggle('hidden', !match);
+        });
+      });
+    });
+  })();
+
+  // Video play-button overlay: hide once playing, show again when paused/ended
+  document.querySelectorAll('.clip-card').forEach(card => {
+    const video = card.querySelector('video');
+    if (!video) return;
+    video.addEventListener('play', () => card.classList.add('playing'));
+    video.addEventListener('pause', () => card.classList.remove('playing'));
+    video.addEventListener('ended', () => card.classList.remove('playing'));
+  });
+</script>
+</body>
+</html>

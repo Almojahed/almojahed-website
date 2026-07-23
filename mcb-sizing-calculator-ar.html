@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حاسبة قياس قواطع MCB — شركة المجاهد أكسبانشن</title>
+<meta name="description" content="حاسبة مجانية لقياس قواطع MCB من شركة المجاهد أكسبانشن. قدّر التصنيف والمنحنى المناسبين لحملك، ثم اطلب عرض سعر لقواطع CHINT المتوفرة لدينا.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #F7F2DD;
+    --cream-deep: #EFE7C6;
+    --paper: #FFFDF6;
+    --ink: #1B1712;
+    --charcoal: #201B14;
+    --charcoal-2: #2A2318;
+    --orange: #F0631E;
+    --orange-deep: #C94E14;
+    --amber: #F0A22A;
+    --line: #DCD0A3;
+    --line-dark: #4A4030;
+    --muted: #6B6350;
+    --muted-light: #C9BF9C;
+
+    --display: 'Tajawal', sans-serif;
+    --body: 'IBM Plex Sans Arabic', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; overflow-x: hidden; }
+  body{
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color: inherit; text-decoration:none; }
+  ul{ list-style:none; }
+
+  .wrap{ max-width: 1180px; margin:0 auto; padding: 0 28px; }
+  section{ position:relative; }
+
+  h1,h2,h3,h4{ font-family: var(--display); font-weight:900; line-height:1.05; letter-spacing:-0.01em; }
+  .eyebrow{
+    font-family: var(--mono); font-size:12.5px; letter-spacing:.18em; text-transform:uppercase;
+    color: var(--orange-deep); font-weight:600; display:flex; align-items:center; gap:10px; margin-bottom:14px;
+  }
+  .eyebrow::before{ content:""; width:22px; height:2px; background: var(--orange); display:inline-block; }
+  .section-head{ max-width: 680px; margin-bottom: 40px; }
+  .section-head p{ color: var(--muted); font-size: 16.5px; margin-top: 14px; }
+  .on-dark .eyebrow{ color: var(--amber); }
+  .on-dark .eyebrow::before{ background: var(--amber); }
+  .on-dark .section-head p{ color: var(--muted-light); }
+
+  /* ---------- nav (shared with main site) ---------- */
+  header{
+    position: sticky; top:0; z-index:50;
+    background: rgba(247,242,221,0.92); backdrop-filter: blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding: 14px 28px; max-width:1180px; margin:0 auto; }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand img{ height:38px; width:auto; }
+  .brand-text{ font-family: var(--display); font-weight:900; font-size:16px; letter-spacing:.02em; line-height:1.1; }
+  .brand-text span{ display:block; font-family: var(--mono); font-weight:500; font-size:9.5px; letter-spacing:.16em; color: var(--muted); text-transform:uppercase; margin-top:2px; }
+  nav.links{ display:flex; gap:26px; }
+  nav.links a{ font-size:14px; font-weight:600; color: var(--ink); position:relative; padding:4px 0; }
+  nav.links a::after{ content:""; position:absolute; inset-inline-start:0; bottom:-2px; width:0; height:2px; background:var(--orange); transition:width .25s ease; }
+  nav.links a:hover::after{ width:100%; }
+  nav.links a.current{ color: var(--orange-deep); }
+  nav.links a.current::after{ width:100%; }
+  .nav-cta{ display:flex; align-items:center; gap:16px; }
+  .btn{
+    font-family: var(--mono); font-weight:600; font-size:13px; letter-spacing:.04em;
+    padding: 11px 20px; border-radius:3px; display:inline-flex; align-items:center; gap:8px;
+    border: 1.5px solid var(--ink); transition: all .2s ease; cursor:pointer;
+  }
+  .btn-solid{ background: var(--orange); border-color: var(--orange); color: var(--paper); }
+  .btn-solid:hover{ background: var(--orange-deep); border-color: var(--orange-deep); }
+  .btn-ghost{ background:transparent; color: var(--ink); }
+  .btn-ghost:hover{ background: var(--ink); color: var(--cream); }
+  .menu-toggle{
+    display:none; background:none; border:1.5px solid var(--ink); border-radius:3px;
+    width:40px; height:36px; cursor:pointer; align-items:center; justify-content:center; flex-direction:column; gap:4px;
+  }
+  .menu-toggle span{ width:18px; height:2px; background: var(--ink); display:block; }
+  a:focus-visible, button:focus-visible{ outline: 2.5px solid var(--orange); outline-offset: 3px; }
+
+  /* ---------- hero ---------- */
+  .tool-hero{ background: var(--charcoal); color: var(--cream); padding: 70px 0 60px; }
+  .tool-hero .eyebrow{ color: var(--amber); }
+  .tool-hero .eyebrow::before{ background: var(--amber); }
+  .tool-hero h1{ font-size: clamp(30px, 4vw, 46px); color: var(--paper); max-width:760px; }
+  .tool-hero p{ margin-top:16px; color: var(--muted-light); font-size:16.5px; max-width:640px; }
+  .back-link{ font-family: var(--mono); font-size:12.5px; color: var(--amber); display:inline-flex; align-items:center; gap:6px; margin-bottom:20px; }
+  .back-link:hover{ text-decoration: underline; }
+
+  /* ---------- calculator ---------- */
+  .calc{ padding: 70px 0; background: var(--cream); }
+  .calc-grid{ display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap:40px; align-items:start; }
+  .calc-form{ background: var(--paper); border:1px solid var(--line); border-radius:10px; padding:32px; }
+  .calc-form h3{ font-size:18px; margin-bottom:20px; }
+  .field{ margin-bottom:18px; }
+  .field label{ display:block; font-family: var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color: var(--orange-deep); margin-bottom:7px; }
+  .field .hint{ font-size:12px; color: var(--muted); margin-top:5px; }
+  .field input, .field select{
+    width:100%; background: var(--cream); border:1px solid var(--line); border-radius:5px;
+    padding:11px 13px; color: var(--ink); font-family: var(--body); font-size:14.5px;
+  }
+  .field input:focus, .field select:focus{ outline:none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(240,99,30,0.15); }
+  .toggle-row{ display:flex; gap:8px; margin-bottom:18px; }
+  .toggle-row button{
+    flex:1; font-family: var(--mono); font-size:12.5px; padding:10px; border-radius:5px; border:1.5px solid var(--line);
+    background: var(--cream); color: var(--muted); cursor:pointer; transition: all .2s ease;
+  }
+  .toggle-row button.active{ background: var(--ink); border-color: var(--ink); color: var(--cream); }
+  .input-mode{ display:none; }
+  .input-mode.active{ display:block; }
+
+  .calc-result{ background: var(--charcoal); color: var(--cream); border-radius:10px; padding:32px; position:sticky; top:100px; }
+  .calc-result .label{ font-family: var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color: var(--amber); }
+  .calc-result .big{ font-family: var(--display); font-weight:900; font-size:52px; color: var(--paper); margin:8px 0 4px; line-height:1; }
+  .calc-result .sub{ font-family: var(--mono); font-size:13px; color: var(--muted-light); }
+  .result-rows{ margin-top:24px; border-top:1px solid var(--line-dark); }
+  .result-rows .r{ display:flex; justify-content:space-between; padding:13px 0; border-bottom:1px solid var(--line-dark); font-size:13.5px; }
+  .result-rows .r b{ font-family: var(--mono); font-size:11px; text-transform:uppercase; color: var(--muted-light); font-weight:500; letter-spacing:.04em; }
+  .result-rows .r span{ font-weight:600; color: var(--paper); }
+  .stock-flag{
+    margin-top:20px; padding:14px 16px; border-radius:6px; font-size:13px; line-height:1.5;
+    background: rgba(240,99,30,0.12); border:1px solid rgba(240,99,30,0.3); color: var(--cream);
+  }
+  .stock-flag.no-stock{ background: rgba(201,191,156,0.08); border-color: var(--line-dark); color: var(--muted-light); }
+  .calc-result .cta{ display:flex; gap:10px; margin-top:22px; flex-wrap:wrap; }
+
+  /* ---------- reference ---------- */
+  .reference{ padding: 70px 0 96px; background: var(--cream-deep); }
+  .curve-grid{ display:grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap:20px; }
+  .curve-card{ background: var(--paper); border:1px solid var(--line); border-radius:8px; padding:24px; }
+  .curve-card .tag{ font-family: var(--mono); font-weight:700; font-size:22px; color: var(--orange-deep); }
+  .curve-card h4{ font-size:15.5px; margin-top:8px; }
+  .curve-card .trip{ font-family: var(--mono); font-size:12px; color: var(--muted); margin-top:4px; }
+  .curve-card p{ font-size:13.5px; color: var(--ink); margin-top:10px; }
+  .curve-card .avail{ margin-top:12px; font-family: var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.04em; padding:5px 10px; border-radius:20px; display:inline-block; }
+  .curve-card .avail.yes{ background: rgba(240,99,30,0.1); color: var(--orange-deep); border:1px solid rgba(240,99,30,0.25); }
+  .curve-card .avail.no{ background: rgba(107,99,80,0.08); color: var(--muted); border:1px solid var(--line); }
+
+  .disclaimer{
+    margin-top:36px; padding:20px 24px; background: var(--paper); border:1px solid var(--line); border-radius:8px;
+    font-size:13px; color: var(--muted); line-height:1.6;
+  }
+  .disclaimer b{ color: var(--ink); }
+
+  footer{ background: var(--ink); color: var(--muted-light); padding: 40px 0; }
+  .foot-grid{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  .foot-brand{ display:flex; align-items:center; gap:12px; }
+  .foot-brand img{ height:28px; }
+  footer small{ font-family: var(--mono); font-size:11.5px; letter-spacing:.05em; }
+
+  @media (max-width: 920px){
+    .calc-grid{ grid-template-columns: minmax(0,1fr); }
+    .calc-result{ position:static; }
+    .curve-grid{ grid-template-columns: minmax(0,1fr); }
+    nav.links{
+      display:none; position:absolute; top:100%; inset-inline-start:0; inset-inline-end:0; background: var(--cream);
+      flex-direction:column; gap:0; border-bottom:1px solid var(--line); padding:6px 0;
+    }
+    nav.links.open{ display:flex; }
+    nav.links a{ padding:14px 28px; }
+    nav.links a::after{ display:none; }
+    .menu-toggle{ display:flex; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index-ar.html" class="brand">
+      <img src="assets/logo.png" alt="شعار شركة المجاهد أكسبانشن">
+      <span class="brand-text">المجاهد<span>لتوسعة الأنشطة المتعددة</span></span>
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="index-ar.html#who">من نحن</a>
+      <a href="index-ar.html#products">منتجاتنا</a>
+      <a href="index-ar.html#stock">المخزون المتوفر</a>
+      <a href="index-ar.html#services">خدماتنا</a>
+      <a href="mcb-sizing-calculator-ar.html" class="current">حاسبة القواطع</a>
+      <a href="index-ar.html#contact">تواصل معنا</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="mcb-sizing-calculator.html" style="font-family: var(--mono);">EN</a>
+      <a class="btn btn-solid" href="tel:+249969520647">اتصل بنا</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="tool-hero">
+  <div class="wrap">
+    <a href="index-ar.html" class="back-link">→ العودة إلى صفحة المجاهد الرئيسية</a>
+    <div class="eyebrow">أداة مجانية</div>
+    <h1>حاسبة قياس قواطع MCB</h1>
+    <p>احسب تصنيف قاطع الدائرة ونوع المنحنى الذي يحتاجه حملك — أدخل الحمل بالكيلوواط أو بالأمبير، وسنقدّر لك مقاس القاطع المناسب ونوضح أيها متوفر لدينا في المخزون حاليًا.</p>
+  </div>
+</section>
+
+<section class="calc">
+  <div class="wrap">
+    <div class="calc-grid">
+
+      <div class="calc-form">
+        <h3>أدخل تفاصيل حملك</h3>
+
+        <div class="field">
+          <label for="supply">نوع التغذية</label>
+          <select id="supply">
+            <option value="1">أحادي الطور (230V)</option>
+            <option value="3">ثلاثي الطور (400V)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="voltage">الجهد (V)</label>
+          <input type="number" id="voltage" value="230">
+          <div class="hint">التغذية القياسية في السودان: 230V أحادي الطور / 400V ثلاثي الطور، بتردد 50Hz.</div>
+        </div>
+
+        <div class="toggle-row">
+          <button type="button" class="mode-btn active" data-mode="power">أعرف الحمل بالكيلوواط (kW)</button>
+          <button type="button" class="mode-btn" data-mode="current">أعرف الحمل بالأمبير (A)</button>
+        </div>
+
+        <div class="input-mode active" id="mode-power">
+          <div class="field">
+            <label for="power">قدرة الحمل (kW)</label>
+            <input type="number" id="power" value="5" step="0.1">
+          </div>
+          <div class="field">
+            <label for="pf">معامل القدرة (Power Factor)</label>
+            <input type="number" id="pf" value="0.8" step="0.05" min="0.1" max="1">
+            <div class="hint">استخدم 1.0 للأحمال المقاومة البحتة (سخانات، إضاءة متوهجة). القيمة 0.8 شائعة كافتراضي للأحمال المختلطة أو أحمال المحركات.</div>
+          </div>
+        </div>
+
+        <div class="input-mode" id="mode-current">
+          <div class="field">
+            <label for="currentIn">تيار الحمل (A)</label>
+            <input type="number" id="currentIn" value="20" step="0.5">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="loadType">نوع الحمل (لاقتراح المنحنى)</label>
+          <select id="loadType">
+            <option value="B">إضاءة / مقاومة / مقابس — منحنى B</option>
+            <option value="C" selected>توزيع عام / أحمال مختلطة — منحنى C</option>
+            <option value="D">محركات / محولات / تيار اندفاع عالٍ — منحنى D</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="margin">هامش الأمان</label>
+          <select id="margin">
+            <option value="1.25" selected>×1.25 (قياسي، للأحمال المستمرة)</option>
+            <option value="1.0">×1.0 (بدون هامش — التصنيف الدقيق)</option>
+            <option value="1.5">×1.5 (هامش إضافي / نمو مستقبلي)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-result">
+        <div class="label">تيار الحمل المقدّر</div>
+        <div class="big" id="outCurrent">0.0 A</div>
+        <div class="sub" id="outFormula">—</div>
+
+        <div class="result-rows">
+          <div class="r"><b>القاطع المُوصى به</b><span id="outMcb">—</span></div>
+          <div class="r"><b>المنحنى المقترح</b><span id="outCurve">—</span></div>
+          <div class="r"><b>مع هامش الأمان</b><span id="outMargin">—</span></div>
+        </div>
+
+        <div class="stock-flag" id="stockFlag">أدخل بيانات حملك لعرض النتائج.</div>
+
+        <div class="cta">
+          <a class="btn btn-solid" href="index-ar.html#quote-form-wrap">اطلب عرض سعر</a>
+          <a class="btn btn-ghost" style="border-color:var(--line-dark); color:var(--cream);" href="tel:+249969520647">اتصل على 0969 520 647</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="reference">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">مرجع فني</div>
+      <h2 style="font-size:clamp(24px,2.8vw,32px);">فهم أنواع منحنيات قواطع MCB</h2>
+      <p>يحدد "المنحنى" مدى سرعة فصل القاطع عند الحمل الزائد مقارنةً بحالات القصر الكهربائي — واختيار المنحنى المناسب لنوع حملك يمنع الفصل غير الضروري أو نقص الحماية.</p>
+    </div>
+    <div class="curve-grid">
+      <div class="curve-card">
+        <div class="tag">B</div>
+        <h4>منحنى B</h4>
+        <div class="trip">يفصل عند 3–5 × In</div>
+        <p>الأكثر حساسية. الأنسب للأحمال المقاومة ذات تيار الاندفاع المنخفض: دوائر الإضاءة، المقابس، السخانات، لوحات التوزيع المنزلية.</p>
+        <span class="avail no">يُطلب عند الحاجة</span>
+      </div>
+      <div class="curve-card">
+        <div class="tag">C</div>
+        <h4>منحنى C</h4>
+        <div class="trip">يفصل عند 5–10 × In</div>
+        <p>المنحنى العام متعدد الاستخدامات. يتحمل تيار الاندفاع المعتدل من المحركات الصغيرة، وحدات الإضاءة الفلورية/LED، والدوائر التجارية أو الصناعية المختلطة.</p>
+        <span class="avail yes">✓ متوفر في المخزون — C10, C16, C25, C32, C63</span>
+      </div>
+      <div class="curve-card">
+        <div class="tag">D</div>
+        <h4>منحنى D</h4>
+        <div class="trip">يفصل عند 10–20 × In</div>
+        <p>الأقل حساسية. مطلوب للأحمال ذات تيار الاندفاع العالي: المحركات الكبيرة، المحولات، معدات اللحام، أجهزة الأشعة السينية والآلات الثقيلة المماثلة.</p>
+        <span class="avail no">يُطلب عند الحاجة</span>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <b>هذه الحاسبة دليل تخطيطي عام، وليست بديلاً عن التصميم الهندسي المتخصص.</b> يجب أن يراعي التحديد النهائي لحماية الدائرة أيضًا مقطع وطول الكابل (هبوط الجهد)، ودرجة الحرارة المحيطة وعوامل التخفيض عند التجميع (وفق IEC 60364)، والتنسيق/الانتقائية مع الحماية الأعلى، وبيانات الشركة المصنّعة تحديدًا. يُرجى دائمًا مراجعة التصميم الكهربائي النهائي من قبل مهندس كهربائي مؤهل قبل التركيب. فريقنا الفني في المجاهد جاهز للمساعدة — <a href="index-ar.html#quote-form-wrap" style="color:var(--orange-deep); text-decoration:underline;">اطلب استشارة</a>.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <img src="assets/logo.png" alt="شعار المجاهد">
+      <small>شركة المجاهد أكسبانشن — تأسست 2024</small>
+    </div>
+    <small>&copy; <span id="year"></span> شركة المجاهد أكسبانشن · كسلا والخرطوم، السودان</small>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // mobile nav toggle
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  // input mode toggle (power vs current)
+  const modeBtns = document.querySelectorAll('.mode-btn');
+  modeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      modeBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.input-mode').forEach(el => el.classList.remove('active'));
+      document.getElementById('mode-' + btn.dataset.mode).classList.add('active');
+      calculate();
+    });
+  });
+
+  // supply type auto-fills a sensible default voltage
+  document.getElementById('supply').addEventListener('change', (e) => {
+    document.getElementById('voltage').value = e.target.value === '3' ? 400 : 230;
+    calculate();
+  });
+
+  const STANDARD_SIZES = [6, 10, 16, 20, 25, 32, 40, 50, 63, 80, 100, 125];
+  const STOCKED_MCB_SIZES = [10, 16, 25, 32, 63]; // NXB-63 Curve C, confirmed in stock across 1P/2P/3P
+
+  // MCCB frame sizes we can supply. `photographed:true` = confirmed physical stock in our
+  // Live Inventory (real photos on hand). `photographed:false` = confirmed available in our
+  // Full Catalog, verified against CHINT's official specs, but not yet unboxed/photographed here.
+  const MCCB_OPTIONS = [
+    { model: 'CHINT DZ158-125', amps: 125, photographed: true },
+    { model: 'CHINT NXM-125H/3300', amps: 100, photographed: false },
+    { model: 'CHINT NXM-250H/3300', amps: 160, photographed: true },
+    { model: 'CHINT NXM-250H/3300', amps: 250, photographed: false },
+    { model: 'CHINT NXM-400H/3300', amps: 400, photographed: false },
+  ].sort((a, b) => a.amps - b.amps);
+
+  function nextStandardSize(current) {
+    for (const size of STANDARD_SIZES) {
+      if (size >= current) return size;
+    }
+    return null; // exceeds standard MCB list entirely
+  }
+
+  function nextStockedMcbSize(current) {
+    for (const size of STOCKED_MCB_SIZES) {
+      if (size >= current) return size;
+    }
+    return null;
+  }
+
+  function nextMccb(current) {
+    for (const opt of MCCB_OPTIONS) {
+      if (opt.amps >= current) return opt;
+    }
+    return null; // exceeds our largest MCCB frame (400A)
+  }
+
+  function calculate() {
+    const supply = document.getElementById('supply').value;
+    const voltage = parseFloat(document.getElementById('voltage').value) || 0;
+    const mode = document.querySelector('.mode-btn.active').dataset.mode;
+    const margin = parseFloat(document.getElementById('margin').value);
+    const loadType = document.getElementById('loadType').value;
+    const loadTypeLabel = { B: 'منحنى B', C: 'منحنى C', D: 'منحنى D' }[loadType];
+
+    let current = 0;
+    let formula = '';
+
+    if (mode === 'power') {
+      const power = parseFloat(document.getElementById('power').value) || 0;
+      const pf = parseFloat(document.getElementById('pf').value) || 1;
+      if (voltage > 0 && pf > 0) {
+        if (supply === '3') {
+          current = (power * 1000) / (Math.sqrt(3) * voltage * pf);
+          formula = `I = (${power}kW × 1000) / (√3 × ${voltage}V × ${pf} PF)`;
+        } else {
+          current = (power * 1000) / (voltage * pf);
+          formula = `I = (${power}kW × 1000) / (${voltage}V × ${pf} PF)`;
+        }
+      }
+    } else {
+      current = parseFloat(document.getElementById('currentIn').value) || 0;
+      formula = 'أُدخل مباشرة';
+    }
+
+    const withMargin = current * margin;
+
+    document.getElementById('outCurrent').textContent = current.toFixed(1) + ' A';
+    document.getElementById('outFormula').textContent = formula;
+    document.getElementById('outMargin').textContent = withMargin.toFixed(1) + ' A';
+
+    const stockFlag = document.getElementById('stockFlag');
+    const mcbOut = document.getElementById('outMcb');
+    const curveOut = document.getElementById('outCurve');
+
+    // Once a load needs more than our largest stocked MCB (63A), this is MCCB territory —
+    // MCCBs don't use B/C/D curves the way MCBs do (typically thermal-magnetic, adjustable),
+    // so we switch the recommendation logic entirely rather than keep applying curve labels.
+    if (withMargin > 63) {
+      curveOut.textContent = 'MCCB (حراري-مغناطيسي)';
+      const mccb = nextMccb(withMargin);
+
+      if (!mccb) {
+        mcbOut.textContent = '> 400A — تواصل معنا';
+        stockFlag.className = 'stock-flag no-stock';
+        stockFlag.textContent = `هذا الحمل يتجاوز أكبر إطار MCCB قياسي لدينا (400A). اطلب عرض سعر — سيؤكد فريقنا الفني الحل المناسب للتوزيع الرئيسي لحمل بهذا الحجم.`;
+      } else {
+        mcbOut.textContent = mccb.amps + 'A · MCCB';
+        if (mccb.photographed) {
+          stockFlag.className = 'stock-flag';
+          stockFlag.textContent = `✓ متوفر الآن في المخزون: ${mccb.model}، ${mccb.amps}A. هذه وحدة مصوَّرة من مستودعنا في كسلا — شاهدها في قسم "المخزون المتوفر" أعلاه. جاهزة للتسليم.`;
+        } else {
+          stockFlag.className = 'stock-flag no-stock';
+          stockFlag.textContent = `${mccb.model}، ${mccb.amps}A — مؤكد توفره في كتالوجنا الكامل (تم التحقق من مواصفاته الرسمية من CHINT)، وتُطبَّق مدة توريد عند الطلب. اطلب عرض سعر وسنؤكد موعد التسليم.`;
+        }
+      }
+      return;
+    }
+
+    // 63A and below: standard MCB territory.
+    const recommended = nextStandardSize(withMargin);
+    curveOut.textContent = loadTypeLabel;
+    mcbOut.textContent = recommended + 'A · ' + loadTypeLabel;
+
+    if (loadType !== 'C') {
+      // Right size, wrong curve — we only hold Curve C in physical stock right now.
+      stockFlag.className = 'stock-flag no-stock';
+      stockFlag.textContent = `${recommended}A ${loadTypeLabel} يحتاج إلى طلب توريد — نملك حاليًا منحنى C في المخزون. إذا كان منحنى C يناسب حملك أيضًا، يمكننا على الأرجح التسليم في نفس اليوم بدلاً من ذلك.`;
+    } else if (STOCKED_MCB_SIZES.includes(recommended)) {
+      stockFlag.className = 'stock-flag';
+      stockFlag.textContent = `✓ متوفر الآن في المخزون: CHINT NXB-63، ${recommended}A، منحنى C. جاهز للتسليم في نفس اليوم من معرضنا في الخرطوم.`;
+    } else {
+      const upSize = nextStockedMcbSize(withMargin);
+      if (upSize) {
+        stockFlag.className = 'stock-flag';
+        stockFlag.textContent = `${recommended}A ليس من ضمن المقاسات المتوفرة لدينا، لكن وحدتنا ${upSize}A من CHINT NXB-63، منحنى C — المتوفرة بالفعل في المخزون — تغطي هذا الحمل بأمان ويمكن تسليمها في نفس اليوم. (تأكد من أن الكابل مصنَّف لتحمّل ${upSize}A قبل التركيب.)`;
+      } else {
+        stockFlag.className = 'stock-flag no-stock';
+        stockFlag.textContent = `${recommended}A منحنى C يتجاوز أكبر قاطع MCB متوفر لدينا (63A). اطلب عرض سعر وسنطلبه لك، أو ضع في اعتبارك استخدام MCCB لهذا الحمل.`;
+      }
+    }
+  }
+
+  document.querySelectorAll('#supply, #voltage, #power, #pf, #currentIn, #loadType, #margin').forEach(el => {
+    el.addEventListener('input', calculate);
+    el.addEventListener('change', calculate);
+  });
+
+  calculate();
+</script>
+</body>
+</html>
