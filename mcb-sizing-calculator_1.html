@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCB Sizing Calculator — Almojahed Expansion Company Ltd.</title>
+<meta name="description" content="Free MCB (circuit breaker) sizing calculator from Almojahed Expansion Company Ltd. Estimate the right breaker rating and curve type for your load, then request a quote for in-stock CHINT breakers.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #F7F2DD;
+    --cream-deep: #EFE7C6;
+    --paper: #FFFDF6;
+    --ink: #1B1712;
+    --charcoal: #201B14;
+    --charcoal-2: #2A2318;
+    --orange: #F0631E;
+    --orange-deep: #C94E14;
+    --amber: #F0A22A;
+    --line: #DCD0A3;
+    --line-dark: #4A4030;
+    --muted: #6B6350;
+    --muted-light: #C9BF9C;
+
+    --display: 'Roboto Slab', serif;
+    --body: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+  body{
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color: inherit; text-decoration:none; }
+  ul{ list-style:none; }
+
+  .wrap{ max-width: 1180px; margin:0 auto; padding: 0 28px; }
+  section{ position:relative; }
+
+  h1,h2,h3,h4{ font-family: var(--display); font-weight:900; line-height:1.05; letter-spacing:-0.01em; }
+  .eyebrow{
+    font-family: var(--mono); font-size:12.5px; letter-spacing:.18em; text-transform:uppercase;
+    color: var(--orange-deep); font-weight:600; display:flex; align-items:center; gap:10px; margin-bottom:14px;
+  }
+  .eyebrow::before{ content:""; width:22px; height:2px; background: var(--orange); display:inline-block; }
+  .section-head{ max-width: 680px; margin-bottom: 40px; }
+  .section-head p{ color: var(--muted); font-size: 16.5px; margin-top: 14px; }
+  .on-dark .eyebrow{ color: var(--amber); }
+  .on-dark .eyebrow::before{ background: var(--amber); }
+  .on-dark .section-head p{ color: var(--muted-light); }
+
+  /* ---------- nav (shared with main site) ---------- */
+  header{
+    position: sticky; top:0; z-index:50;
+    background: rgba(247,242,221,0.92); backdrop-filter: blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding: 14px 28px; max-width:1180px; margin:0 auto; }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand img{ height:38px; width:auto; }
+  .brand-text{ font-family: var(--display); font-weight:900; font-size:16px; letter-spacing:.02em; line-height:1.1; }
+  .brand-text span{ display:block; font-family: var(--mono); font-weight:500; font-size:9.5px; letter-spacing:.16em; color: var(--muted); text-transform:uppercase; margin-top:2px; }
+  nav.links{ display:flex; gap:26px; }
+  nav.links a{ font-size:14px; font-weight:600; color: var(--ink); position:relative; padding:4px 0; }
+  nav.links a::after{ content:""; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:var(--orange); transition:width .25s ease; }
+  nav.links a:hover::after{ width:100%; }
+  nav.links a.current{ color: var(--orange-deep); }
+  nav.links a.current::after{ width:100%; }
+  .nav-cta{ display:flex; align-items:center; gap:16px; }
+  .btn{
+    font-family: var(--mono); font-weight:600; font-size:13px; letter-spacing:.04em;
+    padding: 11px 20px; border-radius:3px; display:inline-flex; align-items:center; gap:8px;
+    border: 1.5px solid var(--ink); transition: all .2s ease; cursor:pointer;
+  }
+  .btn-solid{ background: var(--orange); border-color: var(--orange); color: var(--paper); }
+  .btn-solid:hover{ background: var(--orange-deep); border-color: var(--orange-deep); }
+  .btn-ghost{ background:transparent; color: var(--ink); }
+  .btn-ghost:hover{ background: var(--ink); color: var(--cream); }
+  .menu-toggle{
+    display:none; background:none; border:1.5px solid var(--ink); border-radius:3px;
+    width:40px; height:36px; cursor:pointer; align-items:center; justify-content:center; flex-direction:column; gap:4px;
+  }
+  .menu-toggle span{ width:18px; height:2px; background: var(--ink); display:block; }
+  a:focus-visible, button:focus-visible{ outline: 2.5px solid var(--orange); outline-offset: 3px; }
+
+  /* ---------- hero ---------- */
+  .tool-hero{ background: var(--charcoal); color: var(--cream); padding: 70px 0 60px; }
+  .tool-hero .eyebrow{ color: var(--amber); }
+  .tool-hero .eyebrow::before{ background: var(--amber); }
+  .tool-hero h1{ font-size: clamp(30px, 4vw, 46px); color: var(--paper); max-width:760px; }
+  .tool-hero p{ margin-top:16px; color: var(--muted-light); font-size:16.5px; max-width:640px; }
+  .back-link{ font-family: var(--mono); font-size:12.5px; color: var(--amber); display:inline-flex; align-items:center; gap:6px; margin-bottom:20px; }
+  .back-link:hover{ text-decoration: underline; }
+
+  /* ---------- calculator ---------- */
+  .calc{ padding: 70px 0; background: var(--cream); }
+  .calc-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:40px; align-items:start; }
+  .calc-form{ background: var(--paper); border:1px solid var(--line); border-radius:10px; padding:32px; }
+  .calc-form h3{ font-size:18px; margin-bottom:20px; }
+  .field{ margin-bottom:18px; }
+  .field label{ display:block; font-family: var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color: var(--orange-deep); margin-bottom:7px; }
+  .field .hint{ font-size:12px; color: var(--muted); margin-top:5px; }
+  .field input, .field select{
+    width:100%; background: var(--cream); border:1px solid var(--line); border-radius:5px;
+    padding:11px 13px; color: var(--ink); font-family: var(--body); font-size:14.5px;
+  }
+  .field input:focus, .field select:focus{ outline:none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(240,99,30,0.15); }
+  .toggle-row{ display:flex; gap:8px; margin-bottom:18px; }
+  .toggle-row button{
+    flex:1; font-family: var(--mono); font-size:12.5px; padding:10px; border-radius:5px; border:1.5px solid var(--line);
+    background: var(--cream); color: var(--muted); cursor:pointer; transition: all .2s ease;
+  }
+  .toggle-row button.active{ background: var(--ink); border-color: var(--ink); color: var(--cream); }
+  .input-mode{ display:none; }
+  .input-mode.active{ display:block; }
+
+  .calc-result{ background: var(--charcoal); color: var(--cream); border-radius:10px; padding:32px; position:sticky; top:100px; }
+  .calc-result .label{ font-family: var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color: var(--amber); }
+  .calc-result .big{ font-family: var(--display); font-weight:900; font-size:52px; color: var(--paper); margin:8px 0 4px; line-height:1; }
+  .calc-result .sub{ font-family: var(--mono); font-size:13px; color: var(--muted-light); }
+  .result-rows{ margin-top:24px; border-top:1px solid var(--line-dark); }
+  .result-rows .r{ display:flex; justify-content:space-between; padding:13px 0; border-bottom:1px solid var(--line-dark); font-size:13.5px; }
+  .result-rows .r b{ font-family: var(--mono); font-size:11px; text-transform:uppercase; color: var(--muted-light); font-weight:500; letter-spacing:.04em; }
+  .result-rows .r span{ font-weight:600; color: var(--paper); }
+  .stock-flag{
+    margin-top:20px; padding:14px 16px; border-radius:6px; font-size:13px; line-height:1.5;
+    background: rgba(240,99,30,0.12); border:1px solid rgba(240,99,30,0.3); color: var(--cream);
+  }
+  .stock-flag.no-stock{ background: rgba(201,191,156,0.08); border-color: var(--line-dark); color: var(--muted-light); }
+  .calc-result .cta{ display:flex; gap:10px; margin-top:22px; flex-wrap:wrap; }
+
+  /* ---------- reference ---------- */
+  .reference{ padding: 70px 0 96px; background: var(--cream-deep); }
+  .curve-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:20px; }
+  .curve-card{ background: var(--paper); border:1px solid var(--line); border-radius:8px; padding:24px; }
+  .curve-card .tag{ font-family: var(--mono); font-weight:700; font-size:22px; color: var(--orange-deep); }
+  .curve-card h4{ font-size:15.5px; margin-top:8px; }
+  .curve-card .trip{ font-family: var(--mono); font-size:12px; color: var(--muted); margin-top:4px; }
+  .curve-card p{ font-size:13.5px; color: var(--ink); margin-top:10px; }
+  .curve-card .avail{ margin-top:12px; font-family: var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.04em; padding:5px 10px; border-radius:20px; display:inline-block; }
+  .curve-card .avail.yes{ background: rgba(240,99,30,0.1); color: var(--orange-deep); border:1px solid rgba(240,99,30,0.25); }
+  .curve-card .avail.no{ background: rgba(107,99,80,0.08); color: var(--muted); border:1px solid var(--line); }
+
+  .disclaimer{
+    margin-top:36px; padding:20px 24px; background: var(--paper); border:1px solid var(--line); border-radius:8px;
+    font-size:13px; color: var(--muted); line-height:1.6;
+  }
+  .disclaimer b{ color: var(--ink); }
+
+  footer{ background: var(--ink); color: var(--muted-light); padding: 40px 0; }
+  .foot-grid{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  .foot-brand{ display:flex; align-items:center; gap:12px; }
+  .foot-brand img{ height:28px; }
+  footer small{ font-family: var(--mono); font-size:11.5px; letter-spacing:.05em; }
+
+  @media (max-width: 920px){
+    .calc-grid{ grid-template-columns: 1fr; }
+    .calc-result{ position:static; }
+    .curve-grid{ grid-template-columns: 1fr; }
+    nav.links{
+      display:none; position:absolute; top:100%; left:0; right:0; background: var(--cream);
+      flex-direction:column; gap:0; border-bottom:1px solid var(--line); padding:6px 0;
+    }
+    nav.links.open{ display:flex; }
+    nav.links a{ padding:14px 28px; }
+    nav.links a::after{ display:none; }
+    .menu-toggle{ display:flex; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" alt="Almojahed Expansion Company Ltd. logo">
+      <span class="brand-text">ALMOJAHED<span>Expansion Company Ltd.</span></span>
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="index.html#who">Who We Are</a>
+      <a href="index.html#products">Products</a>
+      <a href="index.html#stock">In Stock</a>
+      <a href="index.html#services">Services</a>
+      <a href="mcb-sizing-calculator.html" class="current">MCB Calculator</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-solid" href="tel:+249969520647">Call Us</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="tool-hero">
+  <div class="wrap">
+    <a href="index.html" class="back-link">← Back to Almojahed Home</a>
+    <div class="eyebrow">Free Tool</div>
+    <h1>MCB Sizing Calculator</h1>
+    <p>Work out the circuit breaker rating and curve type your load needs — enter your load in kW or amps, and we'll estimate the right MCB size and flag which ones we already have in stock.</p>
+  </div>
+</section>
+
+<section class="calc">
+  <div class="wrap">
+    <div class="calc-grid">
+
+      <div class="calc-form">
+        <h3>Enter your load details</h3>
+
+        <div class="field">
+          <label for="supply">Supply Type</label>
+          <select id="supply">
+            <option value="1">Single Phase (230V)</option>
+            <option value="3">Three Phase (400V)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="voltage">Voltage (V)</label>
+          <input type="number" id="voltage" value="230">
+          <div class="hint">Standard Sudan supply: 230V single-phase / 400V three-phase, 50Hz.</div>
+        </div>
+
+        <div class="toggle-row">
+          <button type="button" class="mode-btn active" data-mode="power">I know the load in kW</button>
+          <button type="button" class="mode-btn" data-mode="current">I know the load in Amps</button>
+        </div>
+
+        <div class="input-mode active" id="mode-power">
+          <div class="field">
+            <label for="power">Load Power (kW)</label>
+            <input type="number" id="power" value="5" step="0.1">
+          </div>
+          <div class="field">
+            <label for="pf">Power Factor</label>
+            <input type="number" id="pf" value="0.8" step="0.05" min="0.1" max="1">
+            <div class="hint">Use 1.0 for purely resistive loads (heaters, incandescent lighting). 0.8 is a common default for mixed/motor loads.</div>
+          </div>
+        </div>
+
+        <div class="input-mode" id="mode-current">
+          <div class="field">
+            <label for="currentIn">Load Current (A)</label>
+            <input type="number" id="currentIn" value="20" step="0.5">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="loadType">Load Type (for curve suggestion)</label>
+          <select id="loadType">
+            <option value="B">Lighting / resistive / socket outlets — Curve B</option>
+            <option value="C" selected>General distribution / mixed loads — Curve C</option>
+            <option value="D">Motors / transformers / high inrush — Curve D</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="margin">Safety Margin</label>
+          <select id="margin">
+            <option value="1.25" selected>1.25× (standard, continuous loads)</option>
+            <option value="1.0">1.0× (no margin — exact rating)</option>
+            <option value="1.5">1.5× (extra margin / future growth)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-result">
+        <div class="label">Estimated Load Current</div>
+        <div class="big" id="outCurrent">0.0 A</div>
+        <div class="sub" id="outFormula">—</div>
+
+        <div class="result-rows">
+          <div class="r"><b>Recommended MCB</b><span id="outMcb">—</span></div>
+          <div class="r"><b>Suggested Curve</b><span id="outCurve">—</span></div>
+          <div class="r"><b>With Margin</b><span id="outMargin">—</span></div>
+        </div>
+
+        <div class="stock-flag" id="stockFlag">Enter your load to see results.</div>
+
+        <div class="cta">
+          <a class="btn btn-solid" href="index.html#quote-form-wrap">Request a Quote</a>
+          <a class="btn btn-ghost" style="border-color:var(--line-dark); color:var(--cream);" href="tel:+249969520647">Call 0969 520 647</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="reference">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Reference</div>
+      <h2 style="font-size:clamp(24px,2.8vw,32px);">Understanding MCB curve types</h2>
+      <p>The "curve" determines how quickly the breaker trips under overload versus short-circuit conditions — matching it to your load type prevents nuisance tripping or under-protection.</p>
+    </div>
+    <div class="curve-grid">
+      <div class="curve-card">
+        <div class="tag">B</div>
+        <h4>Curve B</h4>
+        <div class="trip">Trips at 3–5 × In</div>
+        <p>Most sensitive curve. Best for resistive loads with low inrush: lighting circuits, socket outlets, heaters, domestic distribution boards.</p>
+        <span class="avail no">Order on request</span>
+      </div>
+      <div class="curve-card">
+        <div class="tag">C</div>
+        <h4>Curve C</h4>
+        <div class="trip">Trips at 5–10 × In</div>
+        <p>The general-purpose curve. Handles moderate inrush from small motors, fluorescent/LED banks, and mixed commercial or industrial circuits.</p>
+        <span class="avail yes">✓ In stock — C10, C16, C25, C32</span>
+      </div>
+      <div class="curve-card">
+        <div class="tag">D</div>
+        <h4>Curve D</h4>
+        <div class="trip">Trips at 10–20 × In</div>
+        <p>Least sensitive curve. Needed for high inrush loads: large motors, transformers, welding equipment, X-ray and similar heavy machinery.</p>
+        <span class="avail no">Order on request</span>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <b>This calculator is a general planning guide, not a substitute for professional design.</b> Final circuit protection sizing must also account for cable cross-section and length (voltage drop), ambient temperature and grouping derating factors (per IEC 60364), discrimination/selectivity with upstream protection, and manufacturer-specific data. Always have your final electrical design reviewed by a qualified electrical engineer before installation. Almojahed's technical team is available to help — <a href="index.html#quote-form-wrap" style="color:var(--orange-deep); text-decoration:underline;">request a consultation</a>.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <img src="assets/logo.png" alt="Almojahed logo">
+      <small>ALMOJAHED EXPANSION COMPANY LTD. — EST. 2024</small>
+    </div>
+    <small>&copy; <span id="year"></span> Almojahed Expansion Company Ltd. · Kassala &amp; Khartoum, Sudan</small>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // mobile nav toggle
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  // input mode toggle (power vs current)
+  const modeBtns = document.querySelectorAll('.mode-btn');
+  modeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      modeBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.input-mode').forEach(el => el.classList.remove('active'));
+      document.getElementById('mode-' + btn.dataset.mode).classList.add('active');
+      calculate();
+    });
+  });
+
+  // supply type auto-fills a sensible default voltage
+  document.getElementById('supply').addEventListener('change', (e) => {
+    document.getElementById('voltage').value = e.target.value === '3' ? 400 : 230;
+    calculate();
+  });
+
+  const STANDARD_SIZES = [6, 10, 16, 20, 25, 32, 40, 50, 63, 80, 100, 125];
+  const STOCKED_MCB_SIZES = [10, 16, 25, 32, 63]; // NXB-63 Curve C, confirmed in stock across 1P/2P/3P
+
+  // MCCB frame sizes we can supply. `photographed:true` = confirmed physical stock in our
+  // Live Inventory (real photos on hand). `photographed:false` = confirmed available in our
+  // Full Catalog, verified against CHINT's official specs, but not yet unboxed/photographed here.
+  const MCCB_OPTIONS = [
+    { model: 'CHINT DZ158-125', amps: 125, photographed: true },
+    { model: 'CHINT NXM-125H/3300', amps: 100, photographed: false },
+    { model: 'CHINT NXM-250H/3300', amps: 160, photographed: true },
+    { model: 'CHINT NXM-250H/3300', amps: 250, photographed: false },
+    { model: 'CHINT NXM-400H/3300', amps: 400, photographed: false },
+  ].sort((a, b) => a.amps - b.amps);
+
+  function nextStandardSize(current) {
+    for (const size of STANDARD_SIZES) {
+      if (size >= current) return size;
+    }
+    return null; // exceeds standard MCB list entirely
+  }
+
+  function nextStockedMcbSize(current) {
+    for (const size of STOCKED_MCB_SIZES) {
+      if (size >= current) return size;
+    }
+    return null;
+  }
+
+  function nextMccb(current) {
+    for (const opt of MCCB_OPTIONS) {
+      if (opt.amps >= current) return opt;
+    }
+    return null; // exceeds our largest MCCB frame (400A)
+  }
+
+  function calculate() {
+    const supply = document.getElementById('supply').value;
+    const voltage = parseFloat(document.getElementById('voltage').value) || 0;
+    const mode = document.querySelector('.mode-btn.active').dataset.mode;
+    const margin = parseFloat(document.getElementById('margin').value);
+    const loadType = document.getElementById('loadType').value;
+    const loadTypeLabel = { B: 'Curve B', C: 'Curve C', D: 'Curve D' }[loadType];
+
+    let current = 0;
+    let formula = '';
+
+    if (mode === 'power') {
+      const power = parseFloat(document.getElementById('power').value) || 0;
+      const pf = parseFloat(document.getElementById('pf').value) || 1;
+      if (voltage > 0 && pf > 0) {
+        if (supply === '3') {
+          current = (power * 1000) / (Math.sqrt(3) * voltage * pf);
+          formula = `I = (${power}kW × 1000) / (√3 × ${voltage}V × ${pf} PF)`;
+        } else {
+          current = (power * 1000) / (voltage * pf);
+          formula = `I = (${power}kW × 1000) / (${voltage}V × ${pf} PF)`;
+        }
+      }
+    } else {
+      current = parseFloat(document.getElementById('currentIn').value) || 0;
+      formula = 'Entered directly';
+    }
+
+    const withMargin = current * margin;
+
+    document.getElementById('outCurrent').textContent = current.toFixed(1) + ' A';
+    document.getElementById('outFormula').textContent = formula;
+    document.getElementById('outMargin').textContent = withMargin.toFixed(1) + ' A';
+
+    const stockFlag = document.getElementById('stockFlag');
+    const mcbOut = document.getElementById('outMcb');
+    const curveOut = document.getElementById('outCurve');
+
+    // Once a load needs more than our largest stocked MCB (63A), this is MCCB territory —
+    // MCCBs don't use B/C/D curves the way MCBs do (typically thermal-magnetic, adjustable),
+    // so we switch the recommendation logic entirely rather than keep applying curve labels.
+    if (withMargin > 63) {
+      curveOut.textContent = 'MCCB (thermal-magnetic)';
+      const mccb = nextMccb(withMargin);
+
+      if (!mccb) {
+        mcbOut.textContent = '> 400A — contact us';
+        stockFlag.className = 'stock-flag no-stock';
+        stockFlag.textContent = `This load exceeds our largest standard MCCB frame (400A). Request a quote — our technical team will confirm the right main-distribution solution for a load this size.`;
+      } else {
+        mcbOut.textContent = mccb.amps + 'A · MCCB';
+        if (mccb.photographed) {
+          stockFlag.className = 'stock-flag';
+          stockFlag.textContent = `✓ In stock now: ${mccb.model}, ${mccb.amps}A. This is a photographed unit from our Kassala warehouse — see it in Live Inventory above. Ready for dispatch.`;
+        } else {
+          stockFlag.className = 'stock-flag no-stock';
+          stockFlag.textContent = `${mccb.model}, ${mccb.amps}A — confirmed available in our full catalog (verified against CHINT's official specs), order lead time applies. Request a quote and we'll confirm delivery timing.`;
+        }
+      }
+      return;
+    }
+
+    // 63A and below: standard MCB territory.
+    const recommended = nextStandardSize(withMargin);
+    curveOut.textContent = loadTypeLabel;
+    mcbOut.textContent = recommended + 'A · ' + loadTypeLabel;
+
+    if (loadType !== 'C') {
+      // Right size, wrong curve — we only hold Curve C in physical stock right now.
+      stockFlag.className = 'stock-flag no-stock';
+      stockFlag.textContent = `${recommended}A Curve ${loadType} needs to be ordered in — we currently hold Curve C in stock. If Curve C also suits your load, we can likely dispatch same-day instead.`;
+    } else if (STOCKED_MCB_SIZES.includes(recommended)) {
+      stockFlag.className = 'stock-flag';
+      stockFlag.textContent = `✓ In stock now: CHINT NXB-63, ${recommended}A, Curve C. Ready for same-day dispatch from our Khartoum showroom.`;
+    } else {
+      const upSize = nextStockedMcbSize(withMargin);
+      if (upSize) {
+        stockFlag.className = 'stock-flag';
+        stockFlag.textContent = `${recommended}A isn't one of our stocked sizes, but our ${upSize}A CHINT NXB-63, Curve C — already in stock — safely covers this load and can dispatch same-day. (Confirm your cable is rated for ${upSize}A before installing.)`;
+      } else {
+        stockFlag.className = 'stock-flag no-stock';
+        stockFlag.textContent = `${recommended}A Curve C is above our largest stocked MCB (63A). Request a quote and we'll order it in, or consider an MCCB for this load.`;
+      }
+    }
+  }
+
+  document.querySelectorAll('#supply, #voltage, #power, #pf, #currentIn, #loadType, #margin').forEach(el => {
+    el.addEventListener('input', calculate);
+    el.addEventListener('change', calculate);
+  });
+
+  calculate();
+</script>
+</body>
+</html>
